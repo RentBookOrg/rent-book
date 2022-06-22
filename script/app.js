@@ -24,9 +24,7 @@ let displayMenuItems = (menuItems) => {
                     </div>
                   </div>
                   <h3 class="book-title">
-                    <a class="book-link" href="#"
-                      >${item.title}</a
-                    >
+                    <a class="book-link" href="#">${item.title}</a>
                   </h3>
                   <del class="book-del">${parsed_price > 0 ? parsed_price - 10 + '$' : ""}</del
                   ><ins class="book-price">${item.price}</ins>
@@ -35,7 +33,11 @@ let displayMenuItems = (menuItems) => {
                 </li>`;
     })
     displayMenu = displayMenu.join("")
-    books_list.innerHTML = displayMenu
+    displayMenu = new DOMParser().parseFromString(displayMenu, "text/html")
+    let items = displayMenu.querySelectorAll("li");
+    for (let item of items) {
+        books_list.appendChild(item)
+    }
 }
 
 fetch("https://api.itbook.store/1.0/search/mongodb")
