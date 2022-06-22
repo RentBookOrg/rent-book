@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", "Arial", sans-serif;
+}
+
+:root {
+  --clr-primary: rgb(0, 141, 255);
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* site header */
+
+.site-header {
+  padding-block: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  width: 40%;
+  padding-right: 5px;
+  background-color: var(--clr-primary);
+  border-radius: 8px;
+}
+
+.search-text {
+  margin-left: 15px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.search-input {
+  width: 90%;
+  padding-block: 10px;
+  padding-left: 15px;
+  margin: 2px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+}
+
+.form_submit_btn {
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* books */
+
+.books {
+  margin-top: 50px;
+}
+
+.books-title {
+  margin-top: 0;
+}
+.books-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.categories {
+  width: 100%;
+  margin-top: 150px;
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.categories-text {
+  margin-bottom: 10px;
+  padding-left: 15px;
+  font-size: 16px;
+  color: #858997;
+}
+
+.category-item {
+  margin-bottom: 10px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.category-link {
+  padding-left: 15px;
+  font-weight: bold;
+  color: #141821;
+}
+
+.books-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.books-item {
+  width: 300px;
+  padding: 30px 20px;
+  box-shadow: 0 0 2px;
+  border-radius: 8px;
+}
+
+.item-top {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.item-img {
+  border-radius: 10px;
+}
+
+.item-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item-wrapper-btn {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.bucket-btn {
+  background-color: var(--clr-primary);
+  color: rgb(255, 255, 255);
+}
+
+.like-btn {
+  color: rgb(128, 128, 128);
+}
+
+.sale {
+  position: absolute;
+  top: -11%;
+  left: 0;
+  background-color: rgb(234, 111, 46);
+  padding: 5px 10px;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 8px;
+}
+
+.book-title {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: inherit;
+  line-height: 20px;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.book-link {
+  color: #222;
+  transition: 0.3s color ease-in;
+}
+
+.book-link:hover {
+  color: var(--clr-primary);
+}
+
+.book-del {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;
+  color: rgb(175, 86, 121);
+}
+
+.book-price {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 20px;
+  color: #141821;
+}
+
+.book-price-rent {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.buy-btn {
+  padding: 10px 15px;
+  background-color: var(--clr-primary);
+  color: #fff;
+  border: none;
+  outline: none;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1392px;
+  }
+}

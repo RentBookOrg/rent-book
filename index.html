@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asaxiy Clone</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- site header start -->
+    <header class="site-header">
+      <div class="container">
+        <div class="header-wrapper">
+          <a class="site-logo" href="#">
+            <img
+              class="site-logo-img"
+              src="https://via.placeholder.com/134x32"
+              alt="Template logo"
+              width="134"
+              height="32"
+            />
+          </a>
+          <form class="search-bar">
+            <input
+              class="search-input"
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search"
+            />
+            <button class="form_submit_btn" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <!-- site header end -->
+
+    <section class="books">
+      <div class="container">
+        <div class="books-wrapper">
+          <div class="categories">
+            <p class="categories-text">Categories</p>
+            <ul class="category-list">
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+              <li class="category-item">
+                <a class="category-link" href="#"
+                  >Asaxiy books <small class="length">(100)</small>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="books">
+            <div class="books-top-wrapper">
+              <h2 class="books-title">Books</h2>
+              <select name="number_of_books" id="number_of_books">
+                <option selected value="12">12</option>
+                <option selected value="12">24</option>
+                <option selected value="12">48</option>
+                <option selected value="12">60</option>
+              </select>
+              <select name="filter_books" id="filter_books">
+                <option selected hidden>Filter</option>
+                <option value="low_price">Low price</option>
+                <option value="high_price">High price</option>
+                <option value="newest">Newest</option>
+                <option value="high_rated">High rated</option>
+                <option value="low_rated">Low rated</option>
+              </select>
+            </div>
+            <div class="books-bottom">
+              <ul class="books-list">
+                <!-- <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img
+                      class="item-img"
+                      src="https://picsum.photos/142/142"
+                      alt="Template image"
+                    />
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="book-title">
+                    <a class="book-link" href="#"
+                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nemo, minima!</a
+                    >
+                  </h3>
+                  <del class="book-del">90.000 soums</del
+                  ><ins class="book-price">48.000 soums</ins>
+                  <p class="book-price-rent">12.000 soums / 12 months</p>
+                  <button class="buy-btn" href="#">Buy now</button>
+                </li> -->
+                
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- script -->
+    <script src="./script/app.js"></script>
+  </body>
+</html>
