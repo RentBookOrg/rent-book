@@ -2,10 +2,10 @@ let books_list = document.querySelector(".books-list");
 let books_bottom = document.querySelector(".books-bottom");
 let search_input = document.getElementById("search");
 let books_container = document.querySelector("[data-book-template]");
-let users = []
+let books = []
 
 let displayMenuItems = (menuItems) => {
-    users = menuItems.map(item => {
+    books = menuItems.map(item => {
        let parsed_price = Math.floor(parseFloat(item.price.replace("$", "")));
        card = books_container.content.cloneNode(true).children[0];
        let img = card.querySelector("[data-book-img]");
@@ -19,22 +19,25 @@ let displayMenuItems = (menuItems) => {
        let rent_price = card.querySelector("[data-book-rent-price]")
        rent_price.textContent = parsed_price > 0 ? `${Math.floor(parsed_price / 12)}$ / 12 months` : ""
        books_list.append(card)
-
       //  return the user
-      return {name:item.name, img:item.img, title:item.title, price:item.price, subtitle:item.subtitle}
+      return {name:item.name, img:item.img, title:item.title, price:parsed_price, subtitle:item.subtitle,element:card}
     })
 }
 
 // search bar
 search_input.addEventListener("input",(e)=>{
-  let text = e.currentTarget.value;
+  let text = e.currentTarget.value.toLowerCase()
+  books.forEach(book =>{
+    const isVisible = book.title.toLowerCase().includes(text)
+    book.element.classList.toggle("hide",!isVisible);
+  })
 
 })
 
 fetch("https://api.itbook.store/1.0/search/mongodb")
   .then((res) => res.json())
   .then((data) => {
-    // console.log(data.books);
+    console.log(data.books);
     displayMenuItems(data.books)
     
   });

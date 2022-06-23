@@ -90,11 +90,14 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
   gap: 2rem;
 }
 
 .categories {
-  width: 100%;
+  width: 300px;
   margin-top: 150px;
   box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
@@ -132,6 +135,10 @@ a {
   padding: 30px 20px;
   box-shadow: 0 0 2px;
   border-radius: 8px;
+}
+
+.books-item.hide{
+  display: none;
 }
 
 .item-top {
