@@ -47,10 +47,62 @@
             />
             <button class="form_submit_btn" type="submit">Search</button>
           </form>
+
+          <button class="btn cabinet-btn primary-btn">Cabinet</button>
         </div>
       </div>
-    </header>
-    <!-- site header end -->
+    </header>    <!-- site header end -->
+
+    <!--! Modal page loads to get user's location. Without getting user's location the main page isn't gonna load -->
+    <section class="modal">
+      <div class="container">
+        <div class="modal-wrapper">
+          <h1 class="modal-title text-black">O'z hududingizni tanlang</h1>
+          <form class="modal-form">
+            <div class="form-wrapper">
+              <div class="select-wrapper">
+                <select class="location_select" name="location" id="location">
+                  <option class="option" id="option" selected hidden>
+                    O'z hududingizni tanlang
+                  </option>
+                  <option class="option" value="toshkent">Toshkent</option>
+                  <option class="option" value="sirdaryo">Sirdaryo</option>
+                  <option class="option" value="fargona">Farg'ona</option>
+                  <option class="option" value="namangan">Namangan</option>
+                  <option class="option" value="andijon">Andijon</option>
+                  <option class="option" value="qashqadaryo">
+                    Qashqadaryo
+                  </option>
+                  <option class="option" value="surxondaryo">
+                    Surxondaryo
+                  </option>
+                  <option class="option" value="samarqand">Samarqand</option>
+                  <option class="option" value="Xorazm">Xorazm</option>
+                  <option class="option" value="Jizzax">Jizzax</option>
+                  <option class="option" value="Buxoro">Buxoro</option>
+                  <option class="option" value="qoraqalpogistion">
+                    Qoraqalpog'istion Respublikasi
+                  </option>
+                </select>
+                <div class="arrows"></div>
+              </div>
+              <img
+                class="modal-img"
+                src="./images/modal.svg"
+                alt="template image"
+                width="300"
+                height="300"
+              />
+            </div>
+            <div class="btn-container">
+              <button class="btn modal-btn not-allowed" type="submit">
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <section class="books-section">
       <div class="container">
@@ -58,81 +110,13 @@
           <div class="categories">
             <p class="categories-text">Categories</p>
             <ul class="category-list">
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
-              <li class="category-item">
-                <a class="category-link" href="#"
-                  >Asaxiy books <small class="length">(100)</small>
-                </a>
-              </li>
+              <template data-category-template>
+                <li class="category-item">
+                  <a class="category-link" href="#"
+                    ><small class="length"></small>
+                  </a>
+                </li>
+              </template>
             </ul>
           </div>
 
@@ -170,18 +154,24 @@
                         height="160"
                       />
                       <div class="item-wrapper">
-                        <button class="bucket-btn item-wrapper-btn">
+                        <button class="bucket-btn item-wrapper-btn btn">
                           <i class="fa-solid fa-basket-shopping"></i>
                         </button>
-                        <button class="like-btn item-wrapper-btn">
+                        <button class="like-btn item-wrapper-btn btn">
                           <i class="fa-solid fa-heart"></i>
                         </button>
                       </div>
                     </div>
                     <div class="book-info">
-                      <h3 class="book-title">
-                        <a class="book-link" data-book-name href="#"></a>
-                      </h3>
+                      <div class="info-container">
+                        <h3 class="book-title">
+                          <a class="book-link" data-book-name href="#"></a>
+                        </h3>
+
+                        <div class="book-desc-wrapper">
+                          <p class="book-desc"></p>
+                        </div>
+                      </div>
                       <del class="book-del" data-book-old-price></del
                       ><ins class="book-price" data-book-price></ins>
                       <p class="book-price-rent" data-book-rent-price></p>
@@ -193,9 +183,12 @@
             </div>
           </div>
         </div>
+
+        
       </div>
     </section>
     <!-- script -->
-    <script src="./script/app.js"></script>
+    <script type="module" src="./script/app.js"></script>
+    <script src="./script/index.js"></script>
   </body>
 </html>
