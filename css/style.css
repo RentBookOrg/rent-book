@@ -15,6 +15,7 @@ body {
   --clr-black: #000;
   --clr-red:#dc143c;
   --clr-red-light:#e98397;
+  --clr-gray:#888;
 }
 
 ul {
@@ -598,7 +599,74 @@ a {
 }
 
 
+/************* Register field **********/
 
+.register{
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-form{
+  padding: 1rem;
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.register-wrapper{
+}
+
+.register-field{
+  padding-block:1rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.register-input{
+  margin-right: 15px;
+  padding:1rem 2rem;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.register-input:focus{
+  box-shadow: 0 0 3px 5px var(--clr-primary-light);
+}
+
+.icon{
+  color: var(--clr-black);
+  font-size: 18px;
+}
+
+.register-input:focus +  .icon{
+  color: var(--clr-primary-light);
+}
+
+.submit-btn{
+  margin-top: 15px;
+  font-size: 18px;
+  border: 2px solid transparent;
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 25px;
+}
+
+.submit-btn:focus{
+  box-shadow: 0 0 4px 5px var(--clr-primary-light);
+}
+
+.register-text{
+  font-size: 20px;
+  color: var(--clr-gray);
+}
+
+.register-login{
+  color: var(--clr-primary);
+}
 
 @media (max-width: 576px) {
   .categories {

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <section class="register">
+      <h1 class="register-title"></h1>
+      <div class="register-wrapper">
+        <form action="cabinet.html" class="register-form">
+          <div class="name-field register-field">
+            <input
+              class="register-input"
+              required
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+            />
+            <i class="fa-solid fa-file-signature icon"></i>
+          </div>
+          <div class="username-field register-field">
+            <input
+              required
+              class="register-input"
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Your username"
+            />
+            <i class="fas fa-user icon"></i>
+          </div>
+          <div class="password-field register-field">
+            <input
+              required
+              class="register-input"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Your password"
+            />
+            <i class="fas fa-key icon"></i>
+          </div>
+          <div class="email-field register-field">
+            <input
+              required
+              class="register-input"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Your email"
+            />
+            <i class="fa-solid fa-envelope icon"></i>
+          </div>
+          <div class="btn-container">
+            <button class="btn submit-btn">Submit</button>
+          </div>
+        </form>
+        <p class="register-text">
+          Already registered? <a class="register-login" href="#">Login here</a>
+        </p>
+      </div>
+    </section>
+  </body>
+</html>
