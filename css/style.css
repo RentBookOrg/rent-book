@@ -3,6 +3,7 @@
 }
 
 body {
+  position: relative;
   margin: 0;
   font-family: "Poppins", "Arial", sans-serif;
 }
@@ -601,14 +602,28 @@ a {
 
 /************* Register field **********/
 
-.register{
+.register, .login-section, .email-validation{
+  position: absolute;
+  top: 50%;
+  left: 40%;
   height: 90vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease-in, transform 0.5s ease-in-out;
 }
 
-.register-form{
+.active-section{
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0px);
+}
+
+.register-form, .login-form{
   padding: 1rem;
   box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -617,12 +632,15 @@ a {
 .register-wrapper{
 }
 
-.register-field{
+.register-field, .login-field{
   padding-block:1rem;
+}
+
+.register-field{
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
 
-.register-input{
+.register-input, .login-input, .validation-input{
   margin-right: 15px;
   padding:1rem 2rem;
   border: none;
@@ -631,7 +649,7 @@ a {
   box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
-.register-input:focus{
+.register-input:focus, .login-input:focus, .validation-input:focus{
   box-shadow: 0 0 3px 5px var(--clr-primary-light);
 }
 
@@ -640,11 +658,11 @@ a {
   font-size: 18px;
 }
 
-.register-input:focus +  .icon{
+.register-input:focus + .register-field .icon, .login-input:focus + .login-field .icon{
   color: var(--clr-primary-light);
 }
 
-.submit-btn{
+.submit-btn, .login-btn, .send-email{
   margin-top: 15px;
   font-size: 18px;
   border: 2px solid transparent;
@@ -655,11 +673,11 @@ a {
   padding: 10px 25px;
 }
 
-.submit-btn:focus{
+.submit-btn:focus, .send-email:focus{
   box-shadow: 0 0 4px 5px var(--clr-primary-light);
 }
 
-.register-text{
+.register-text, .login-text{
   font-size: 20px;
   color: var(--clr-gray);
 }
@@ -668,6 +686,37 @@ a {
   color: var(--clr-primary);
 }
 
+.forgot-password{
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  color: var(--clr-primary);
+  text-decoration: none;
+}
+
+.validation-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+.validation-wrapper label{
+  color: #333;
+  font-size: 20px;
+}
+
+.validation-message{
+  display: none;
+}
+
+.danger-message{
+  font-size: 20px;
+  color: #dc143c;
+  text-align: center;
+}
 @media (max-width: 576px) {
   .categories {
     display: none;

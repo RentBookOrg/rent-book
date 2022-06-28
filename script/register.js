@@ -1,5 +1,22 @@
+const login_section = document.querySelector(".login-section"); 
+const register_section = document.querySelector(".register")
 const form = document.querySelector(".register-form");
+const login_link = document.querySelector(".register-login");
+const signup_link = document.querySelector(".signup-link");
+
 const users = []
+
+login_link.addEventListener("click",(e)=>{
+    e.preventDefault();
+    register_section.classList.remove("active-section");
+    login_section.classList.add("active-section")
+})
+
+signup_link.addEventListener("click",(e)=>{
+    e.preventDefault();
+    register_section.classList.add("active-section");
+    login_section.classList.remove("active-section");
+})
 
 form.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -34,3 +51,5 @@ function validate_password(password) {
     //   (?=.*[A-Z])       // should contain at least one upper case
     //   [a-zA-Z0-9]{8,}   // should contain at least 8 from the mentioned characters
 }
+
+export default {login_section:login_section, register_section:register_section}
