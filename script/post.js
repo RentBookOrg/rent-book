@@ -4,6 +4,7 @@ let books_list = document.querySelector(".books-list");
 let books_section = document.querySelector(".user-books")
 let post_btn = document.querySelector(".post-btn");
 let post_section = document.querySelector(".post-section")
+let form_field = document.querySelector(".form-field")
 let comments_btn = document.querySelector(".comments-btn");
 let error_div = document.querySelector(".error-message");
 let error_message = error_div.querySelector(".error-text");
@@ -14,8 +15,17 @@ let book = {}
 // add click event to post btn. when the user clicks on the post button, a form window is gonna open and the user is gonna fill all the information about the book
 post_btn.addEventListener("click", () => {
   post_section.style.display = "block";
+  form_field.style.display = "block"
   heading.style.display = "none";
+  let name_input = document.querySelector(".field-name");
+  name_input.classList.add("active")
+  name_input.classList.remove("inactive");
+  console.log("edsfsdfsd");
 })
+
+function resetInputs(){
+  
+}
 
 arrows.forEach((arrow) => {
   arrow.addEventListener("click", (e) => {
@@ -27,22 +37,23 @@ arrows.forEach((arrow) => {
     if (
       (input.name === "name" && validate_name(input))
     ) {
-      console.log("still in this input");
       nextSlide(parent, nextForm);
       book.name = input.value;
+      input.value = ""
     }
     else if (input.name === "book_author" && validate_name(input)) {
       error_div.style.display = "none";
       nextSlide(parent, nextForm);
       book.author = input.value;
-      console.log(book);
-
+      input.value = ""
 
     }
     else if (input.name === "book_category" && validate_category(input.value)) {
       error_div.style.display = "none";
       nextSlide(parent, nextForm);
       book.category = input.value;
+      input.value = ""
+
 
     }
     else if (input.name === "book_price") {
@@ -50,6 +61,8 @@ arrows.forEach((arrow) => {
 
       book.price = `${input.value}`
       nextSlide(parent, nextForm);
+      input.value = ""
+
 
     }
     else if (input.type === "file") {
@@ -62,12 +75,13 @@ arrows.forEach((arrow) => {
         img.src = reader.result;
       })
       book.image = img
+      input.value = ""
+      parent.classList.remove("active");
+      parent.classList.add("inactive");
 
-      let form = document.querySelector(".form-field");
-      form.style.display = "none"
+      post_section.style.display = "none"
       books.push(book);
-      console.log(book.image);
-      displayMenuItems(books)
+      displayMenuItems([book])
     }
   });
 });
@@ -112,4 +126,15 @@ function checkBooks() {
   }
 }
 
-checkBooks();
+function App(){
+  checkBooks()
+}
+
+function deleteBtn(){
+  let trash_btn = document.querySelector('.trash-btn')
+  trash_btn.addEventListener("click",()=>{
+
+  })
+}
+
+// 11 14 15 19 28 55 49

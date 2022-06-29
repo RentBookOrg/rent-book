@@ -25,7 +25,7 @@ let displayMenuItems = (menuItems) => {
     let parsed_price = Math.floor(parseFloat(item.price.replace("$", "")));
     let card = books_container.content.cloneNode(true).children[0];
     let img = card.querySelector("[data-book-img]");
-    img.setAttribute("src", item.image);
+    img.src = item.image
     let name = card.querySelector("[data-book-name]");
     name.textContent = item.title;
     let old_price = card.querySelector("[data-book-old-price]");
@@ -37,7 +37,7 @@ let displayMenuItems = (menuItems) => {
       parsed_price > 0 ? `${Math.floor(parsed_price / 12)}$ / 12 months` : "";
     books_list.append(card);
     //  return the book
-
+    console.log(books);
     return {
       name: item.name,
       img: item.img,
