@@ -58,14 +58,6 @@
                 <li class="books-item">
                   <div class="item-top">
                     <p class="sale">Sale</p>
-                    <img
-                      src="./images/modal.svg"
-                      class="item-img"
-                      data-book-img
-                      alt="Template image"
-                      width="160"
-                      height="160"
-                    />
                     <div class="item-wrapper">
                       <button class="bucket-btn item-wrapper-btn btn">
                         <i class="fa-solid fa-basket-shopping"></i>
@@ -101,7 +93,7 @@
           </ul>
         </div>
         <div class="btn-container">
-          <button class="btn primary-btn cabinet-cta">Comments</button>
+          <button class="btn primary-btn cabinet-cta comments-btn">Comments</button>
           <button class="btn primary-btn cabinet-cta post-btn">
             POST BOOK
           </button>
@@ -111,16 +103,22 @@
 
     <section class="post-section">
       <h2 class="post-title">POST YOUR BOOK</h2>
-      <form class="form-field">
+      <div class="container">
+        <div class="error-message">
+          <p class="error-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sapiente laborum voluptate, doloribus sequi odit quo fugit veritatis facere est?</p>
+        </div>
+      </div>
+      <form class="form-field" enctype="multipart/form-data">
         <div class="form-container field-name active" for="name">
           <input
             class="form-input"
             type="text"
             name="name"
+            aria-label="enter your book's name"
             id="name"
             placeholder="Your book's name"
           />
-          <button class="btn form-btn">
+          <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
             <i class="fas fa-arrow-down"></i>
           </button>
         </div>
@@ -129,10 +127,11 @@
             class="form-input"
             type="text"
             name="book_author"
+            aria-label="enter your book's author"
             id="book_author"
             placeholder="Your book's author"
           />
-          <button class="btn form-btn">
+          <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
             <i class="fas fa-arrow-down"></i>
           </button>
         </div>
@@ -141,10 +140,11 @@
             class="form-input"
             type="text"
             name="book_category"
+            aria-label="enter your book's category"
             id="book_category"
             placeholder="Your book's category"
           />
-          <button class="btn form-btn">
+          <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
             <i class="fas fa-arrow-down"></i>
           </button>
         </div>
@@ -153,10 +153,26 @@
             class="form-input"
             type="number"
             name="book_price"
+            aria-label="enter your book's price"
             id="book_price"
             placeholder="Your book's price"
           />
-          <button class="btn form-btn">
+          
+          <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
+            <i class="fas fa-arrow-down"></i>
+          </button>
+        </div>
+
+        <div class="form-container field-img inactive">
+          <input
+            class="form-input"
+            type="file"
+            name="book_img"
+            id="book_img"
+            accept="image/png, image/jpeg"
+            placeholder="Upload an image of your book"
+          />
+          <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
             <i class="fas fa-arrow-down"></i>
           </button>
         </div>
@@ -177,7 +193,7 @@
         </div> -->
       </form>
     </section>
-
+    
     <!-- <script src="./script/app.js"></script> -->
     <!-- <script src="./script/index.js"></script> -->
     <script type="module" src="./script/post.js"></script>

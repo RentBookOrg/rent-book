@@ -5,10 +5,15 @@ let books = [];
 
 let displayMenuItems = (menuItems) => {
   books = menuItems.map((item) => {
-    let parsed_price = Math.floor(parseFloat(item.price.replace("$", "")));
+    let parsed_price = Math.floor(parseFloat(item.price));
+    console.log(item);
     let card = books_container.content.cloneNode(true).children[0];
-    let img = card.querySelector("[data-book-img]");
-    img.setAttribute("src", item.image);
+
+    let item_top = card.querySelector(".item-top");
+    item_top.append(item.image);
+    item.image.width = 160
+    item.image.height = 160
+    item.image.classList.add("item-img")
     let name = card.querySelector("[data-book-name]");
     name.textContent = item.title;
     let old_price = card.querySelector("[data-book-old-price]");
@@ -32,5 +37,16 @@ let displayMenuItems = (menuItems) => {
     };
   });
 };
+
+function getImg(src) {
+  return `<img
+  class="item-img"
+  src="${src}"
+  data-book-img
+  alt="Template image"
+  width="160"
+  height="160"
+/>`
+}
 
 export default displayMenuItems;
