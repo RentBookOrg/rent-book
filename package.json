@@ -1,0 +1,28 @@
+{
+  "name": "rent-book",
+  "version": "1.0.0",
+  "description": "renting book website",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "start:dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RentBookOrg/rent-book.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RentBookOrg/rent-book/issues"
+  },
+  "homepage": "https://github.com/RentBookOrg/rent-book#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
