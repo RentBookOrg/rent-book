@@ -1,105 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
-    <base href="/">
-    <!-- fontawesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- css -->
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <base href="/">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- css -->
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <section class="main-section">
     <section class="register active-section" id="register">
-      <h3 class="register-title">Sign Up</h3>
-      <div class="register-wrapper">
-        <form action="cabinet.html" class="register-form">
-          <div class="name-field register-field">
-            <input
-              class="register-input"
-              required
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Your name"
-            />
-            <i class="fa-solid fa-file-signature icon"></i>
+
+      <h3 class="form-title">Sign Up</h3>
+      <div class="register-wrapper form-wrapper">
+        <form action="cabinet.html" class="register-form" autocomplete="off">
+          <div class="name-field field">
+            <input class="register-input form-input" required type="text" id="user_fullname" name="user_fullname" />
+            <label class="input-label"><span class="label-span">Name</span></label>
           </div>
-          <div class="username-field register-field">
-            <input
-              required
-              class="register-input"
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Your username"
-            />
-            <i class="fas fa-user icon"></i>
+          <div class="username-field field">
+            <input required class="register-input form-input" type="text" name="username" id="username" />
+            <label class="input-label"><span class="label-span">Username</span></label>
           </div>
-          <div class="password-field register-field">
-            <input
-              required
-              class="register-input"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Your password"
-            />
-            <i class="fas fa-key icon"></i>
+          <div class="password-field field">
+            <input required class="register-input form-input" type="password" name="password" id="password" />
+            <label class="input-label"><span class="label-span">Password</span></label>
           </div>
-          <div class="email-field register-field">
-            <input
-              required
-              class="register-input"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your email"
-            />
-            <i class="fa-solid fa-envelope icon"></i>
+          <div class="email-field field">
+            <input required class="register-input form-input" name="user_email" id="user_email">
+            <label class="input-label"><span class="label-span">Email</span></label>
           </div>
           <div class="btn-container">
             <button class="btn submit-btn">Submit</button>
           </div>
         </form>
         <p class="register-text">
-          Already registered? <a class="register-login" href="#">Login here</a>
+          Already registered? <a class="register-login form-link" href="#">Login here</a>
         </p>
       </div>
+
     </section>
     <section class="login-section" id="login">
-      <h3 class="login-title">Login</h3>
-      <div class="login-wrapper">
+
+      <h3 class="form-title">Login</h3>
+      <div class="login-wrapper form-wrapper">
         <form action="cabinet.html" class="login-form">
-          <div class="login-field">
-            <input
-              required
-              class="login-input"
-              type="text"
-              name="username_email"
-              id="username_email"
-              placeholder="Your username or email"
-            />
-            <i class="fas fa-user icon"></i>
+          <div class="login-field field">
+            <input required class="login-input form-input" type="text" name="username_email" id="username_email" />
+              <label class="input-label"><span class="label-span">Email/Username</span></label>
           </div>
-          <div class="login-password-field">
-            <input
-              required
-              class="login-input"
-              type="login-password"
-              name="login-password"
-              id="login-password"
-              placeholder="Your password"
-            />
-            <i class="fas fa-key icon"></i>
+          <div class="login-password-field field">
+            <input required class="login-input form-input" type="login-password" name="login-password" id="login-password"
+              />
+              <label class="input-label"><span class="label-span">Password</span></label>
           </div>
           <a class="forgot-password" href="#">Forgot password?</a>
           <div class="btn-container">
@@ -107,23 +74,32 @@
           </div>
         </form>
         <p class="register-text">
-          Don't have an account? <a class="signup-link" href="#">Sign up here</a>
+          Don't have an account? <a class="signup-link form-link" href="register.html">Sign up here</a>
         </p>
       </div>
+
     </section>
 
     <section class="email-validation">
-      <div class="validation-wrapper">
-        <label for="email">Enter your email and we will send a validation link to it</label>
-        <input type="email" required name="validation_input" class="validation-input" id="validation-input">
-        <button class="btn send-email">Send</button>
+      <div class="validation-wrapper form-wrapper">
+        <form class="form-field">
+          <div class="field">
+            <label for="email">Enter your email and we will send a validation link to it</label>
+            <input type="email" required name="validation_input" class="validation-input" id="validation-input">
+          </div>
+          <button class="btn send-email">Send</button>
+        </form>
       </div>
       <div class="validation-message">
-        <p class="danger-message">We've successfully sent a validation link to <span class="validation-email"></span>. Please activate your account within 60 minutes. Otherwise you will not likely to have that option again</p>
+        <p class="danger-message">We've successfully sent a validation link to <span class="validation-email"></span>.
+          Please activate your account within 60 minutes. Otherwise you will not likely to have that option again</p>
       </div>
-    </div>
 
-    <script type="module" src="./script/register.js"></script>
-    <script type="module" src="./script/login.js"></script>
-  </body>
+    </section>
+  </section>
+
+  <script type="module" src="./script/register.js"></script>
+  <script type="module" src="./script/login.js"></script>
+</body>
+
 </html>

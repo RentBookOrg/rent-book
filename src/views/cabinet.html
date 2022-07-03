@@ -1,202 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Asaxiy Clone</title>
-    <base href="/">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <!-- fontawesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- css -->
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <!-- site header start -->
-    <header class="site-header cabinet-header">
-      <div class="container">
-        <div class="cabinet-wrapper">
-          <a class="site-logo" href="#">
-            <img
-              class="site-logo-img"
-              src="https://via.placeholder.com/134x32"
-              alt="Template logo"
-              width="134"
-              height="32"
-            />
-          </a>
-          <p class="cabinet-username">Hello, idiot!</p>
-        </div>
-      </div>
-    </header>
-    <!-- site header end -->
 
-    <section class="user-books">
-      <div class="container">
-        <div class="user-books-wrapper">
-          <ul class="books-list" data-books-container>
-            <template data-book-template>
-                <li class="books-item">
-                  <div class="item-top">
-                    <p class="sale">Sale</p>
-                    <div class="item-wrapper">
-                      <button class="bucket-btn item-wrapper-btn btn">
-                        <i class="fa-solid fa-basket-shopping"></i>
-                      </button>
-                      <button class="like-btn item-wrapper-btn btn">
-                        <i class="fa-solid fa-heart"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="book-info">
-                    <div class="info-container">
-                      <h3 class="book-title">
-                        <a class="book-link" data-book-name href="#">Book name</a>
-                      </h3>
-    
-                      <div class="book-desc-wrapper">
-                        <p class="book-desc">
-                          dssadda dsadas dsadsa dsa dassad adasdsad aasdas asd
-                          sadasdas dsadasdas dsad asd asas da das d
-                        </p>
-                      </div>
-                    </div>
-                    <del class="book-del" data-book-old-price>14$</del
-                    ><ins class="book-price" data-book-price>4$</ins>
-                    <p class="book-price-rent" data-book-rent-price>0$</p>
-                  </div>
-                  <div class="book-btn-container">
-                    <button class="btn buy-btn" href="#">Buy now</button>
-                    <button class="btn danger-btn trash-btn">DELETE</button>
-                  </div>
-                </li>
-            </template>
-          </ul>
-        </div>
-        <div class="btn-container">
-          <button class="btn primary-btn cabinet-cta comments-btn">Comments</button>
-          <button class="btn primary-btn cabinet-cta post-btn">
-            POST BOOK
-          </button>
-        </div>
-      </div>
-    </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asaxiy Clone</title>
+  <base href="/">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- css -->
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
 
-    <section class="post-section">
-      <h2 class="post-title">POST YOUR BOOK</h2>
-      <div class="container">
-        <div class="error-message">
-          <p class="error-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sapiente laborum voluptate, doloribus sequi odit quo fugit veritatis facere est?</p>
-        </div>
+<body>
+  <!-- site header start -->
+  <header class="site-header cabinet-header">
+    <div class="container">
+      <div class="cabinet-wrapper">
+        <a class="site-logo" href="#">
+          <img class="site-logo-img" src="https://via.placeholder.com/134x32" alt="Template logo" width="134"
+            height="32" />
+        </a>
+        <p class="cabinet-username">Hello, idiot!</p>
       </div>
-      <form class="form-field" enctype="multipart/form-data">
-        <div class="form-container field-name active" for="name">
-          <input
-            class="form-input"
-            type="text"
-            name="name"
-            aria-label="enter your book's name"
-            id="name"
-            placeholder="Your book's name"
-          />
-          <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
-            <i class="fas fa-arrow-down"></i>
-          </button>
-        </div>
-        <div class="form-container field-author inactive" for="book_author">
-          <input
-            class="form-input"
-            type="text"
-            name="book_author"
-            aria-label="enter your book's author"
-            id="book_author"
-            placeholder="Your book's author"
-          />
-          <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
-            <i class="fas fa-arrow-down"></i>
-          </button>
-        </div>
-        <div class="form-container field-category inactive">
-          <input
-            class="form-input"
-            type="text"
-            name="book_category"
-            aria-label="enter your book's category"
-            id="book_category"
-            placeholder="Your book's category"
-          />
-          <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
-            <i class="fas fa-arrow-down"></i>
-          </button>
-        </div>
-        <div class="form-container field-price inactive">
-          <input
-            class="form-input"
-            type="number"
-            name="book_price"
-            aria-label="enter your book's price"
-            id="book_price"
-            placeholder="Your book's price"
-          />
-          
-          <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
-            <i class="fas fa-arrow-down"></i>
-          </button>
-        </div>
+    </div>
+  </header>
+  <!-- site header end -->
 
-        <div class="form-container field-img inactive">
-          <input
-            class="form-input"
-            type="file"
-            name="book_img"
-            id="book_img"
-            accept="image/png, image/jpeg"
-            placeholder="Upload an image of your book"
-          />
-          <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
-            <i class="fas fa-arrow-down"></i>
-          </button>
-        </div>
-        <!-- sent or rell functionality will be added later -->
-        <!-- <div class="form-container field-radio active">
+  <section class="user-books">
+    <div class="container">
+      <div class="user-books-wrapper">
+        <ul class="books-list" data-books-container>
+          <template data-book-template>
+            <li class="books-item">
+              <div class="item-top">
+                <p class="sale">Sale</p>
+                <div class="item-wrapper">
+                  <button class="bucket-btn item-wrapper-btn btn">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </button>
+                  <button class="like-btn item-wrapper-btn btn">
+                    <i class="fa-solid fa-heart"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="book-info">
+                <div class="info-container">
+                  <h3 class="book-title">
+                    <a class="book-link" data-book-name href="#">Book name</a>
+                  </h3>
+
+                  <div class="book-desc-wrapper">
+                    <p class="book-desc">
+                      dssadda dsadas dsadsa dsa dassad adasdsad aasdas asd
+                      sadasdas dsadasdas dsad asd asas da das d
+                    </p>
+                  </div>
+                </div>
+                <del class="book-del" data-book-old-price>14$</del><ins class="book-price" data-book-price>4$</ins>
+                <p class="book-price-rent" data-book-rent-price>0$</p>
+              </div>
+              <div class="book-btn-container">
+                <button class="btn buy-btn" href="#">Buy now</button>
+                <button class="btn danger-btn trash-btn">DELETE</button>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </div>
+      <div class="btn-container">
+        <button class="btn primary-btn cabinet-cta comments-btn">Comments</button>
+        <button class="btn primary-btn cabinet-cta post-btn">
+          POST BOOK
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="post-section">
+    <h2 class="post-title">POST YOUR BOOK</h2>
+    <div class="container">
+      <div class="error-message">
+        <p class="error-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sapiente laborum voluptate,
+          doloribus sequi odit quo fugit veritatis facere est?</p>
+      </div>
+    </div>
+    <form class="form-field" enctype="multipart/form-data">
+      <div class="form-container field-name active" for="name">
+        <input class="post-input" type="text" name="name" aria-label="enter your book's name" id="name"
+          placeholder="Your book's name" />
+        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+      <div class="form-container field-author inactive" for="book_author">
+        <input class="post-input" type="text" name="book_author" aria-label="enter your book's author" id="book_author"
+          placeholder="Your book's author" />
+        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+      <div class="form-container field-category inactive">
+        <input class="post-input" type="text" name="book_category" aria-label="enter your book's category"
+          id="book_category" placeholder="Your book's category" />
+        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+      <div class="form-container field-price inactive">
+        <input class="post-input" type="number" name="book_price" aria-label="enter your book's price" id="book_price"
+          placeholder="Your book's price" />
+
+        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+
+      <div class="form-container field-img inactive">
+        <input class="post-input" type="file" name="book_img" id="book_img" accept="image/png, image/jpeg"
+          placeholder="Upload an image of your book" />
+        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+      <!-- sent or rell functionality will be added later -->
+      <!-- <div class="form-container field-radio active">
             <label for="sell">Sell</label>
-            <input class="form-input" type="radio" name="sell" id="sell"/>
+            <input class="post-input" type="radio" name="sell" id="sell"/>
           <button class="btn form-btn">
             <i class="fas fa-arrow-down"></i>
           </button>
         </div>
         <div class="form-container field-radio active">
             <label for="rent">Rent</label>
-            <input class="form-input" type="radio" name="rent" id="rent" />
+            <input class="post-input" type="radio" name="rent" id="rent" />
           <button class="btn form-btn">
             <i class="fas fa-arrow-down"></i>
           </button>
         </div> -->
-      </form>
-    </section>
-    
-    <!-- <script src="./script/app.js"></script> -->
-    <!-- <script src="./script/index.js"></script> -->
-    <script type="module" src="./script/post.js"></script>
-  </body>
+    </form>
+  </section>
+
+  <!-- <script src="./script/app.js"></script> -->
+  <!-- <script src="./script/index.js"></script> -->
+  <script type="module" src="./script/post.js"></script>
+</body>
+
 </html>
