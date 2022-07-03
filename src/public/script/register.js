@@ -30,7 +30,7 @@ form.addEventListener("submit", (e) => {
         user.username = username.value
         user.email = email.value
         user.password = password.value
-        window.location = "cabinet.html"
+        window.location = "./views/cabinet.html"
     } else {
         alert("something went wrong");
     }

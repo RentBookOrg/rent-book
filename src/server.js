@@ -9,6 +9,7 @@ import ejs from 'ejs'
     app.engine('html', ejs.renderFile)
     app.set('view engine', 'html')
     app.set('views', join(process.cwd(), 'src', 'views'))
+    app.use(express.static('src'))
     
     app.use(express.static(join(process.cwd(), 'src', 'public')))
 

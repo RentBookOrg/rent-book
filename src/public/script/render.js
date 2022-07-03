@@ -16,6 +16,9 @@ let displayMenuItems = (menuItems) => {
     item.image.classList.add("item-img")
     let name = card.querySelector("[data-book-name]");
     name.textContent = item.name;
+    let desc = card.querySelector(".book-desc");
+    desc.textContent = item.subtitle
+    console.log(`this needs to be in a p tag ${item.subtitle}`);
     let old_price = card.querySelector("[data-book-old-price]");
     old_price.textContent = parsed_price > 0 ? `${parsed_price + 10}$` : "";
     let price = card.querySelector("[data-book-price]");

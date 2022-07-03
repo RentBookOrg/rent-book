@@ -28,6 +28,8 @@ let displayMenuItems = (menuItems) => {
     img.src = item.image
     let name = card.querySelector("[data-book-name]");
     name.textContent = item.title;
+    let desc = card.querySelector(".book-desc");
+    desc.textContent = item.subtitle
     let old_price = card.querySelector("[data-book-old-price]");
     old_price.textContent = parsed_price > 0 ? `${parsed_price + 10}$` : "";
     let price = card.querySelector("[data-book-price]");
@@ -37,7 +39,6 @@ let displayMenuItems = (menuItems) => {
       parsed_price > 0 ? `${Math.floor(parsed_price / 12)}$ / 12 months` : "";
     books_list.append(card);
     //  return the book
-    console.log(books);
     return {
       name: item.name,
       img: item.img,

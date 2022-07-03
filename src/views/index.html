@@ -1,60 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Asaxiy Clone</title>
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <!-- fontawesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- css -->
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <!-- site header start -->
-    <header class="site-header">
-      <div class="container">
-        <div class="header-wrapper">
-          <a class="site-logo" href="#">
-            <img
-              class="site-logo-img"
-              src="https://via.placeholder.com/134x32"
-              alt="Template logo"
-              width="134"
-              height="32"
-            />
-          </a>
-          <form class="search-bar">
-            <input
-              class="search-input"
-              type="text"
-              name="search"
-              id="search"
-              placeholder="Search"
-            />
-            <button class="form_submit_btn" type="submit">Search</button>
-          </form>
 
-          <button class="btn cabinet-btn primary-btn">Cabinet</button>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asaxiy Clone</title>
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- css -->
+  <link rel="stylesheet" href="../public/css/normalize.css">
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <!-- site header start -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-wrapper">
+        <a class="site-logo" href="./index.html">
+          <img class="site-logo-img" src="../public/images/logo-primary.svg" alt="Rent book logo" width="282"
+            height="72" />
+        </a>
+        <form class="search-bar">
+          <input class="search-input" type="text" name="search" id="search" placeholder="Search" />
+          <button class="btn search-btn"></button>
+        </form>
+
+        <button class="btn cabinet-btn primary-btn">Cabinet</button>
       </div>
-    </header>    <!-- site header end -->
+    </div>
+  </header> <!-- site header end -->
 
-    <!--! Modal page loads to get user's location. Without getting user's location the main page isn't gonna load -->
-    <section class="modal">
+  <!--! Modal page loads to get user's location. Without getting user's location the main page isn't gonna load -->
+  <!-- <section class="modal">
       <div class="container">
         <div class="modal-wrapper">
           <h1 class="modal-title text-black">O'z hududingizni tanlang</h1>
@@ -95,94 +80,94 @@
               />
             </div>
             <div class="btn-container">
-              <button class="btn modal-btn not-allowed" type="submit">
+              <button class="btn modal-btn not-allowed submit_btn" type="submit">
                 Send
               </button>
             </div>
           </form>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="books-section">
-      <div class="container">
-        <div class="books-wrapper">
-          <div class="categories">
-            <p class="categories-text">Categories</p>
-            <ul class="category-list">
-              <template data-category-template>
-                <li class="category-item">
-                  <a class="category-link" href="#"
-                    ><small class="length"></small>
-                  </a>
+  <section class="books-section" aria-label="books section">
+    <div class="container">
+      <div class="books-wrapper">
+        <div class="categories" aria-label="categories">
+          <p class="categories-text">Categories</p>
+          <ul class="category-list">
+            <template data-category-template>
+              <li class="category-item">
+                <a class="category-link" href="#"><small class="length"></small>
+                </a>
+              </li>
+            </template>
+          </ul>
+        </div>
+
+        <div class="books">
+          <div class="books-top-wrapper">
+            <h2 class="books-title text-uppercase">Books</h2>
+            <div class="filter-options">
+              <div class="select-wrapper">
+                <select class="filter_books" name="filter_books" id="filter_books" aria-label="select books by price">
+                  <option selected value="all" aria-label="select all">All</option>
+                  <option value="low_price" aria-label="select cheap books">Low price</option>
+                  <option value="high_price" aria-label="select expensive books">High price</option>
+                </select>
+                <span class="arrows select-arrows"></span>
+              </div>
+            </div>
+          </div>
+          <div class="books-bottom">
+            <ul class="books-list" data-books-container>
+              <template data-book-template>
+                <li class="books-item">
+                  <div class="item-top">
+                    <p class="sale">Sale</p>
+                    <img src="./images/modal.svg" width="150" height="150" alt="template image" class="item-img"
+                      data-book-img>
+                    <div class="item-wrapper">
+                      <button class="bucket-btn item-wrapper-btn btn">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                      </button>
+                      <button class="like-btn item-wrapper-btn btn">
+                        <i class="fa-solid fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="book-info">
+                    <div class="info-container">
+                      <h3 class="book-title">
+                        <a class="book-link" data-book-name href="#"></a>
+                      </h3>
+
+                      <div class="book-desc-wrapper">
+                        <p class="book-desc"></p>
+                      </div>
+                    </div>
+                    <del class="book-del" data-book-old-price></del><ins class="book-price" data-book-price></ins>
+                    <p class="book-price-rent" data-book-rent-price></p>
+                  </div>
+                  <div class="btn-container">
+                    <button class="buy-btn" href="#">Buy now</button>
+                    <button class="cart-btn btn">
+                      Add
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                  </div>
                 </li>
               </template>
             </ul>
           </div>
-
-          <div class="books">
-            <div class="books-top-wrapper">
-              <h2 class="books-title">Books</h2>
-              <div class="filter-options">
-                <select name="number_of_books" id="number_of_books">
-                  <option selected value="12">12</option>
-                  <option selected value="12">24</option>
-                  <option selected value="12">48</option>
-                  <option selected value="12">60</option>
-                </select>
-                <select name="filter_books" id="filter_books">
-                  <option selected value="all">All</option>
-                  <option value="low_price">Low price</option>
-                  <option value="high_price">High price</option>
-                  <!-- <option value="newest">Newest</option>
-                  <option value="high_rated">High rated</option>
-                  <option value="low_rated">Low rated</option> -->
-                </select>
-              </div>
-            </div>
-            <div class="books-bottom">
-              <ul class="books-list" data-books-container>
-                <template data-book-template>
-                  <li class="books-item">
-                    <div class="item-top">
-                      <p class="sale">Sale</p>
-                      <img src="./images/modal.svg" width="150" height="150" alt="template image" class="item-img" data-book-img>
-                      <div class="item-wrapper">
-                        <button class="bucket-btn item-wrapper-btn btn">
-                          <i class="fa-solid fa-basket-shopping"></i>
-                        </button>
-                        <button class="like-btn item-wrapper-btn btn">
-                          <i class="fa-solid fa-heart"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="book-info">
-                      <div class="info-container">
-                        <h3 class="book-title">
-                          <a class="book-link" data-book-name href="#"></a>
-                        </h3>
-
-                        <div class="book-desc-wrapper">
-                          <p class="book-desc"></p>
-                        </div>
-                      </div>
-                      <del class="book-del" data-book-old-price></del
-                      ><ins class="book-price" data-book-price></ins>
-                      <p class="book-price-rent" data-book-rent-price></p>
-                    </div>
-                    <button class="buy-btn" href="#">Buy now</button>
-                  </li>
-                </template>
-              </ul>
-            </div>
-          </div>
         </div>
-
-        
       </div>
-    </section>
-    <!-- script -->
-    <script type="module" src="./script/app.js"></script>
+
+
+    </div>
+  </section>
+  <!-- script -->
+  <script type="module" src="./script/app.js"></script>
     <script src="./script/index.js"></script>
-  </body>
+</body>
+
 </html>

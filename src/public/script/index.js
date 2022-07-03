@@ -28,6 +28,6 @@ modalBtn.addEventListener("click", () => {
 })
 
 cabinet_btn.addEventListener("click", () => {
-    location.href = "register.html"
+    location.href = "./views/register.html"
 })
 
