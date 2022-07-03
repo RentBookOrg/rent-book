@@ -1,6 +1,6 @@
 const login_section = document.querySelector(".login-section"); 
 const register_section = document.querySelector(".register");
-const validation_section = document.querySelector(".email-validation");
+const validation_section = document.querySelector("[data-password-section]");
 const validation_wrapper = document.querySelector(".validation-wrapper");
 const send_email = document.querySelector(".send-email");
 const validation_input = document.querySelector(".validation-input")

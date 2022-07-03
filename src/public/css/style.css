@@ -805,21 +805,51 @@ a {
   background-color: var(--clr-primary);
 }
 
-.main-section::before {
+.active-section::before {
   position: absolute;
   top: 25%;
-  content: "";
+  left: -30%;
   display: block;
-  width: 50%;
-  height: 50%;
-  background-image: url("../images/register-hero.svg");
+  width: 60%;
+  height: 60%;
   background-size: 100% 100%;
   background-position: center;
+  z-index: 1;
+  content: "";
 }
 
-.register,
-.login-section,
-.email-validation {
+.err{
+  width: max-content;
+  height: max-content;
+  padding: 1rem;
+  transform: translateY(-100%);
+  color: var(--clr-white);
+  background: var(--clr-red);
+  z-index: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.err.cause{
+  transform: translateY(0%);
+}
+
+.err-message{
+  color: var(--clr-white);
+}
+
+.register::before{
+  background-image: url("../images/register-hero.svg");
+}
+
+.login-section::before{
+  background-image: url("../images/login-hero.svg");
+}
+
+.password-validation::before{
+  background-image: url("../images/password-reset.svg");
+}
+
+.template-section {
   position: absolute;
   right: 0%;
   width: 70%;
@@ -849,8 +879,7 @@ a {
   width: 50%;
 }
 
-.register-form,
-.login-form {
+.form-section {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -873,6 +902,7 @@ a {
   left: 0%;
   width: 100%;
   height: 100%;
+  color: var(--clr-gray);
   transition: var(--transition);
   pointer-events: none;
   overflow: hidden;

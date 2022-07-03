@@ -1,18 +1,25 @@
-const login_section = document.querySelector(".login-section"); 
+const login_section = document.querySelector(".login-section");
 const register_section = document.querySelector(".register")
 const form = document.querySelector(".register-form");
 const login_link = document.querySelector(".register-login");
 const signup_link = document.querySelector(".signup-link");
+const form_inputs = document.querySelectorAll(".register-wrapper [data-form-input]");
+let error = document.querySelector("[data-error-container]")
+let err_text = error.querySelector("p");
 
-const users = []
+// user_email 
+// username 
+// user_fullname
+// password
 
-login_link.addEventListener("click",(e)=>{
+
+login_link.addEventListener("click", (e) => {
     e.preventDefault();
     register_section.classList.remove("active-section");
     login_section.classList.add("active-section")
 })
 
-signup_link.addEventListener("click",(e)=>{
+signup_link.addEventListener("click", (e) => {
     e.preventDefault();
     register_section.classList.add("active-section");
     login_section.classList.remove("active-section");
@@ -21,9 +28,9 @@ signup_link.addEventListener("click",(e)=>{
 form.addEventListener("submit", (e) => {
     e.preventDefault()
     let user = {}
-    let name = form.querySelector("#name");
+    let name = form.querySelector("#user_fullname");
     let username = form.querySelector("#username");
-    let email = form.querySelector("#email");
+    let email = form.querySelector("#user_email");
     let password = form.querySelector("#password");
     if (validate_username(name.value) && validate_username(username.value) && validate_email(email.value) && validate_password(password.value)) {
         user.name_ = name.value
@@ -31,13 +38,11 @@ form.addEventListener("submit", (e) => {
         user.email = email.value
         user.password = password.value
         window.location = "./views/cabinet.html"
-    } else {
-        alert("something went wrong");
     }
 })
 
 function validate_username(username) {
-    return username.length >= 6
+    return username >= 6
 }
 
 function validate_email(email) {
@@ -52,4 +57,4 @@ function validate_password(password) {
     //   [a-zA-Z0-9]{8,}   // should contain at least 8 from the mentioned characters
 }
 
-export default {login_section:login_section, register_section:register_section}
+export default { login_section: login_section, register_section: register_section }
