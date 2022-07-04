@@ -1,11 +1,44 @@
 let books_list = document.querySelector(".books-list");
 let books_bottom = document.querySelector(".books-bottom");
-let search_input = document.getElementById("search");
+let search_input = document.querySelector("[data-search]");
 let books_container = document.querySelector("[data-book-template]");
 let categories = document.querySelector("[data-category-template]")
 let category_list = document.querySelector(".category-list")
 let books = [];
 let filter_books = document.querySelector("select#filter_books");
+
+
+// search bar
+const filter_books_by_search = debounce(text =>{
+  books.forEach(book =>{
+    let card = book.element;
+    
+    const isVisible = book.title.toLowerCase().includes(text.toLowerCase()) || book.subtitle.toLowerCase().includes(text.toLowerCase());
+
+    card.classList.toggle("hide",!isVisible);
+  })
+})
+
+search_input.addEventListener("input",(e)=>{
+  if(e.target.value === "") return
+  const text = e.target.value;
+  filter_books_by_search(text)
+})
+
+
+function debounce(callback, delay = 1000){
+  let timeout
+  return (...args) => {
+    clearTimeout(timeout)
+    timeout = setTimeout(()=>{
+      callback(...args)
+    },delay)
+  }
+}
+
+
+
+// filter books
 filter_books.addEventListener("change", (e) => {
   let selected_value = e.currentTarget.value;
   if (selected_value === "all") {
@@ -19,6 +52,8 @@ filter_books.addEventListener("change", (e) => {
     book.element.classList.toggle("hide", !isFiltered);
   });
 });
+
+// render books
 
 let displayMenuItems = (menuItems) => {
   books = menuItems.map((item) => {
@@ -51,6 +86,9 @@ let displayMenuItems = (menuItems) => {
   });
 };
 
+
+// render categories
+
 let displayCategories = (menuItems) => {
   menuItems.map(item => {
     let category = categories.content.cloneNode(true).children[0];
@@ -59,15 +97,6 @@ let displayCategories = (menuItems) => {
     category_list.append(category)
   })
 }
-
-// search bar
-search_input.addEventListener("input", (e) => {
-  let text = e.currentTarget.value.toLowerCase();
-  books.forEach((book) => {
-    const isVisible = book.title.toLowerCase().includes(text);
-    book.element.classList.toggle("hide", !isVisible);
-  });
-});
 
 fetch("https://api.itbook.store/1.0/search/mongodb")
   .then((res) => res.json())
