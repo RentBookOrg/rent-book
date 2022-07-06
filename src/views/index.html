@@ -31,9 +31,8 @@
           <img class="site-logo-img" src="../public/images/logo-primary.svg" alt="Rent book logo" width="282"
             height="72" />
         </a>
-        <form class="search-bar">
+        <form class="search-bar" data-search-form>
           <input class="search-input" data-search type="text" name="search" id="search" placeholder="Search" />
-          <button class="btn search-btn"></button>
         </form>
 
         <button class="btn cabinet-btn primary-btn">Cabinet</button>
@@ -42,49 +41,49 @@
   </header> <!-- site header end -->
 
   <!--! Modal page loads to get user's location. Without getting user's location the main page isn't gonna load -->
- <section class="modal">
-      <div class="container">
-        <div class="modal-wrapper">
-          <h1 class="modal-title text-black">O'z hududingizni tanlang</h1>
-          <form class="modal-form" >
-            
-              <div class="select-wrapper">
-                <select class="location_select" name="location" id="location">
-                  <option class="option" id="option" selected hidden>
-                    O'z hududingizni tanlang
-                  </option>
-                  <option class="option" value="toshkent">Toshkent</option>
-                  <option class="option" value="sirdaryo">Sirdaryo</option>
-                  <option class="option" value="fargona">Farg'ona</option>
-                  <option class="option" value="namangan">Namangan</option>
-                  <option class="option" value="andijon">Andijon</option>
-                  <option class="option" value="qashqadaryo">
-                    Qashqadaryo
-                  </option>
-                  <option class="option" value="surxondaryo">
-                    Surxondaryo
-                  </option>
-                  <option class="option" value="samarqand">Samarqand</option>
-                  <option class="option" value="Xorazm">Xorazm</option>
-                  <option class="option" value="Jizzax">Jizzax</option>
-                  <option class="option" value="Buxoro">Buxoro</option>
-                  <option class="option" value="qoraqalpogistion">
-                    Qoraqalpog'istion Respublikasi
-                  </option>
-                </select>
-                <div class="arrows"></div>
-              </div>
-             
-            
-            <div class="btn-container">
-              <button class="btn modal-btn not-allowed submit_btn" type="submit">
-                Send
-              </button>
-            </div>
-          </form>
-        </div>
+  <section class="modal">
+    <div class="container">
+      <div class="modal-wrapper">
+        <h1 class="modal-title text-black">O'z hududingizni tanlang</h1>
+        <form class="modal-form">
+
+          <div class="select-wrapper">
+            <select class="location_select" name="location" id="location">
+              <option class="option" id="option" selected hidden>
+                O'z hududingizni tanlang
+              </option>
+              <option class="option" value="toshkent">Toshkent</option>
+              <option class="option" value="sirdaryo">Sirdaryo</option>
+              <option class="option" value="fargona">Farg'ona</option>
+              <option class="option" value="namangan">Namangan</option>
+              <option class="option" value="andijon">Andijon</option>
+              <option class="option" value="qashqadaryo">
+                Qashqadaryo
+              </option>
+              <option class="option" value="surxondaryo">
+                Surxondaryo
+              </option>
+              <option class="option" value="samarqand">Samarqand</option>
+              <option class="option" value="Xorazm">Xorazm</option>
+              <option class="option" value="Jizzax">Jizzax</option>
+              <option class="option" value="Buxoro">Buxoro</option>
+              <option class="option" value="qoraqalpogistion">
+                Qoraqalpog'istion Respublikasi
+              </option>
+            </select>
+            <div class="arrows"></div>
+          </div>
+
+
+          <div class="btn-container">
+            <button class="btn modal-btn not-allowed submit_btn" type="submit">
+              Send
+            </button>
+          </div>
+        </form>
       </div>
-    </section>
+    </div>
+  </section>
 
   <section class="books-section" aria-label="books section">
     <div class="container">
@@ -163,8 +162,9 @@
     </div>
   </section>
   <!-- script -->
+  <script type="module" src="../public/script/location.js"></script>
   <script type="module" src="./script/app.js"></script>
-  <script src="./script/index.js"></script>
+  <script type="module" src="./script/index.js"></script>
 </body>
 
 </html>

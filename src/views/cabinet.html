@@ -29,9 +29,9 @@
   <header class="site-header cabinet-header">
     <div class="container">
       <div class="cabinet-wrapper">
-        <a class="site-logo" href="#">
-          <img class="site-logo-img" src="https://via.placeholder.com/134x32" alt="Template logo" width="134"
-            height="32" />
+        <a class="site-logo" href="../views/index.html">
+          <img class="site-logo-img" src="../public/images/logo-primary.svg" alt="Rent book logo" width="282"
+            height="72" />
         </a>
         <p class="cabinet-username">Hello, idiot!</p>
       </div>
@@ -97,64 +97,111 @@
           doloribus sequi odit quo fugit veritatis facere est?</p>
       </div>
     </div>
-    <form class="form-field" enctype="multipart/form-data">
-      <div class="form-container field-name active" for="name">
+    <form class="form-field" data-post-form enctype="multipart/form-data">
+      <div class="form-container field-name inactive" for="name">
         <input class="post-input" type="text" name="name" aria-label="enter your book's name" id="name"
-          placeholder="Your book's name" />
+          placeholder="Your book's name" required />
         <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
           <i class="fas fa-arrow-down"></i>
         </button>
       </div>
       <div class="form-container field-author inactive" for="book_author">
         <input class="post-input" type="text" name="book_author" aria-label="enter your book's author" id="book_author"
-          placeholder="Your book's author" />
+          placeholder="Your book's author" required />
         <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
           <i class="fas fa-arrow-down"></i>
         </button>
       </div>
-      <div class="form-container field-category inactive">
-        <input class="post-input" type="text" name="book_category" aria-label="enter your book's category"
-          id="book_category" placeholder="Your book's category" />
-        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
-          <i class="fas fa-arrow-down"></i>
-        </button>
-      </div>
-      <div class="form-container field-price inactive">
-        <input class="post-input" type="number" name="book_price" aria-label="enter your book's price" id="book_price"
-          placeholder="Your book's price" />
+      <div class="form-container field-category active">
+        <select class="books_category_list" name="book_category_list">
+          <option class="books_category_item" value="" selected hidden>Choose category</option>
 
-        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
-          <i class="fas fa-arrow-down"></i>
-        </button>
-      </div>
-
-      <div class="form-container field-img inactive">
-        <input class="post-input" type="file" name="book_img" id="book_img" accept="image/png, image/jpeg"
-          placeholder="Upload an image of your book" />
+        </select>
         <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
           <i class="fas fa-arrow-down"></i>
         </button>
       </div>
       <!-- sent or rell functionality will be added later -->
-      <!-- <div class="form-container field-radio active">
-            <label for="sell">Sell</label>
-            <input class="post-input" type="radio" name="sell" id="sell"/>
-          <button class="btn form-btn">
-            <i class="fas fa-arrow-down"></i>
-          </button>
-        </div>
-        <div class="form-container field-radio active">
-            <label for="rent">Rent</label>
-            <input class="post-input" type="radio" name="rent" id="rent" />
-          <button class="btn form-btn">
-            <i class="fas fa-arrow-down"></i>
-          </button>
-        </div> -->
+      <div class="form-container field-radio inactive">
+        <label for="sell">Sell</label>
+        <input class="post-input" type="radio" name="book_mode" id="sell" />
+        <label for="rent">Rent</label>
+        <input class="post-input" type="radio" name="book_mode" id="rent" />
+        <button class="btn form-btn">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+      <!-- book page -->
+      <div class="form-container field-book-page inactive">
+        <input class="post-input" type="number" min="10" name="book_page" aria-label="enter number of pages of your book"
+          id="book_page" placeholder="Number of pages" required />
+
+        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+
+      <!-- book description -->
+      <div class="form-container field-book-desc inactive">
+        <textarea class="book_description" placeholder="Book description" name="book_description" id="book_description" cols="30" rows="10"></textarea>
+        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+
+      <!-- book price -->
+      <div class="form-container field-price inactive">
+        <input class="post-input" type="number" name="book_price" aria-label="enter your book's price" id="book_price"
+          placeholder="Your book's price" required />
+
+        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+
+      <!-- book count -->
+      <div class="form-container field-book-count inactive">
+        <input class="post-input" type="number" min="1" name="book_count"
+          aria-label="enter number of books that you want to sell" id="book_count" placeholder="Number of books"
+          required />
+
+        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+
+      <!-- book picture -->
+
+      <div class="form-container field-img inactive">
+        <input class="post-input" type="file" name="book_img" id="book_img" accept="image/png, image/jpeg"
+          placeholder="Upload an image of your book" required />
+        <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+
+
+
+
+
+
+
     </form>
   </section>
 
+  <div class="verify-message">
+    <div class="container">
+      <div class="verify-wrapper">
+        <p>Please verify your email. Check your email to verify your email. But the link we sent to your email will
+          expire in 1 hour! If the link is expired you can send request to resend email verification link</p>
+        <button class="resend-btn btn form-btn">Resend</button>
+      </div>
+    </div>
+
+  </div>
+
   <!-- <script src="./script/app.js"></script> -->
-  <!-- <script src="./script/index.js"></script> -->
+  <!-- <script type="module" src="./script/index.js"></script> -->
   <script type="module" src="./script/post.js"></script>
 </body>
 

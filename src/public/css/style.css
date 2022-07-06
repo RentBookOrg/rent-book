@@ -31,7 +31,7 @@ body {
   position: relative;
   margin: 0;
   font-family: var(--main-font-family);
-
+  overflow: hidden;
 }
 
 h1,
@@ -100,6 +100,7 @@ a {
   cursor: pointer;
   border-radius: 10px;
   transition: all 0.3s ease;
+  background-color: transparent;
 }
 
 .primary-btn {
@@ -468,6 +469,7 @@ a {
 
 .category-item {
   margin-bottom: 10px;
+  padding-left: 10px;
 }
 
 .category-item:not(:last-child) {
@@ -723,6 +725,35 @@ a {
   margin-right: 50px;
 }
 
+.verify-message{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  
+  padding: 20px 0;
+  background-color: var(--clr-red);
+  color: var(--clr-white);
+  z-index: 1;
+}
+
+.verify-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.resend-btn{
+  padding: 10px 25px;
+  text-transform: uppercase;
+  background-color: var(--clr-white);
+  color: var(--clr-red);
+  border: 2px solid var(--clr-red);
+}
+
 .book-btn-container {
   display: flex;
   width: 100%;
@@ -741,7 +772,7 @@ a {
 }
 
 .post-section {
-  display: none;
+  /* display: none; */
   position: relative;
 }
 
@@ -760,17 +791,32 @@ a {
   top: 50%;
   left: 50%;
   display: flex;
-  padding: 1rem 2rem;
-  background: #fff;
+  justify-content: flex-start;
   transition: all 0.5s ease-in-out;
 }
 
 .field-radio {
-  width: 150px;
+  /* width: 150px; */
+  padding: 1rem 3rem !important;
+  background-color: var(--clr-white);
+}
+
+.field-book-desc{
+  flex-direction: column;
+}
+
+.field-book-desc button{
+  position: absolute;
+  bottom: 5px;
+}
+
+.field-category button{
+  pointer-events: all;
+}
+
+.form-container{
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-inline: 1rem !important;
 }
 
 .radio-wrapper {
@@ -789,11 +835,26 @@ a {
   pointer-events: all;
 }
 
-.form-input {
-  padding: 0.5rem;
-  border: none;
-  outline: none;
+.form-container .form-btn{
+  position: absolute;
+  right: 10px;
 }
+
+.post-input, textarea {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  outline: none;
+  transition: var(--transition);
+}
+.post-input::placeholder{
+  font-size: 18px;
+}
+
+.post-input:focus, textarea:focus{
+  box-shadow: 0 0 4px 5px var(--clr-primary-dark);
+}
+
 
 
 /************* Register field **********/

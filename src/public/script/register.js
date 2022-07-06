@@ -1,6 +1,10 @@
-const login_section = document.querySelector(".login-section");
-const register_section = document.querySelector(".register")
+import { sendJSON, get_UserId } from "./db.js";
+
+export const login_section = document.querySelector(".login-section");
+export const register_section = document.querySelector(".register")
+const is_user_registered = window.localStorage.getItem("user_id");
 const form = document.querySelector(".register-form");
+const register_btn = document.querySelector(".register-btn");
 const login_link = document.querySelector(".register-login");
 const signup_link = document.querySelector(".signup-link");
 const form_inputs = document.querySelectorAll(".register-wrapper [data-form-input]");
@@ -12,6 +16,7 @@ let err_text = error.querySelector("p");
 // user_fullname
 // password
 
+if(is_user_registered) location.href = "./views/cabinet.html"
 
 login_link.addEventListener("click", (e) => {
     e.preventDefault();
@@ -26,23 +31,54 @@ signup_link.addEventListener("click", (e) => {
 })
 
 form.addEventListener("submit", (e) => {
+    console.log(e);
     e.preventDefault()
     let user = {}
     let name = form.querySelector("#user_fullname");
     let username = form.querySelector("#username");
     let email = form.querySelector("#user_email");
     let password = form.querySelector("#password");
+    // 1. Name
+    //     2. Surname
+    //     3. Username
+    //     4. email
+    //     5. phone number
+    //     6. password
+    //     7. location
     if (validate_username(name.value) && validate_username(username.value) && validate_email(email.value) && validate_password(password.value)) {
-        user.name_ = name.value
+        user.name = name.value
+        user.surname = name.value
         user.username = username.value
-        user.email = email.value
+        user.user_email = email.value
         user.password = password.value
-        window.location = "./views/cabinet.html"
+        user.location_id = `${window.localStorage.getItem("user_location_id")}`
+        window.localStorage.setItem("user", user);
+        console.log(user.location_id);
+        user.user_contact = "998977321820"
+        getId(user)
+        // location.href = "./views/cabinet.html"
+    } else {
+        alert("OOPs")
     }
 })
 
+
+
+async function getId(data) {
+    let id = await get_UserId(data).then(data => {
+        if (data.message === "This user is already registered, please log in") {
+            error.classList.add("cause");
+            err_text.textContent = `${data.message}`
+        }
+        if (data.status === 200) {
+            location.href = "./views/cabinet.html"
+            window.localStorage.setItem("user_id", data.user_id)
+        }
+    })
+}
+
 function validate_username(username) {
-    return username >= 6
+    return username.length >= 6
 }
 
 function validate_email(email) {
