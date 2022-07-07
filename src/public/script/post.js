@@ -1,4 +1,4 @@
-import { get_UserId, get_UserInfo, resend_verification, getCategories, getUserBooks } from './db.js';
+import { get_UserId, get_UserInfo, resend_verification, getCategories, getUserBooks, deleteBook } from './db.js';
 import displayMenuItems from './render.js'
 
 
@@ -26,7 +26,30 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 
   // get user books
   await getUserBooks().then(res => res.json()).then(data => {
-    console.log(data);
+    data.data.forEach(book => {
+      console.log(book);
+      let book_item = book_template.content.cloneNode(true);
+      let book_link = book_item.querySelector(".book-link");
+      let book_description = book_item.querySelector(".book-desc");
+      let book_price = book_item.querySelector(".book-price");
+      let book_img = book_item.querySelector("[data-book-img]");
+      let trash_btn = book_item.querySelector("[data-delete-btn]")
+      let item = book_item.querySelector("li");
+      item.dataset.id = book.book_id
+      
+      trash_btn.addEventListener("click",async(e)=>{
+        await deleteBook(window.localStorage.getItem("user_id"),e.target.parentElement.parentElement.dataset.id).then(res => res.json()).then(data => {
+          if(data.status === 200){
+            item.remove()
+          }
+        })
+      })
+      book_img.setAttribute("src", `http://147.182.205.177:5000/${book.book_picture}`)
+      book_link.textContent = book.book_name
+      book_description.textContent = book.book_description
+      book_price = book.book_prize;
+      books_list.append(book_item)
+    })
   })
 
   // render categories
@@ -102,7 +125,7 @@ arrows.forEach((arrow) => {
     ) {
       nextSlide(parent, nextForm);
       book.book_name = input.value;
-      
+
     }
     else if (input.name === "book_author" && validate_name(input)) {
       error_div.style.display = "none";
@@ -114,7 +137,7 @@ arrows.forEach((arrow) => {
         if (child.value === input.value) {
           book.category_id = child.dataset.category_id;
           files.append("category_id", input.value)
-          
+
         }
       })
       nextSlide(parent, nextForm);
@@ -130,7 +153,7 @@ arrows.forEach((arrow) => {
         if (child.checked == true) {
           book.book_mode = child.value
           files.append("book_mode", input.value)
-          
+
         }
       })
       nextSlide(parent, nextForm)
@@ -138,23 +161,23 @@ arrows.forEach((arrow) => {
     else if (input.name === "book_page") {
       book.book_page = input.value
       files.append("book_page", input.value)
-      
+
       nextSlide(parent, nextForm)
     }
     else if (input.name === "book_description") {
       book.book_description = input.value
       files.append("book_description", input.value)
-      
+
       nextSlide(parent, nextForm)
     } else if (input.name === "book_price") {
       book.book_prize = input.value
       files.append("book_prize", input.value)
-      
+
       nextSlide(parent, nextForm);
     } else if (input.name === "book_count") {
       book.book_count = input.value
       files.append("book_count", input.value)
-      
+
       nextSlide(parent, nextForm);
     }
     else if (input.type === "file") {
@@ -166,7 +189,7 @@ arrows.forEach((arrow) => {
       reader.addEventListener("load", () => {
         img.src = reader.result;
       }) */
-      
+
       parent.classList.remove("active");
       parent.classList.add("inactive");
       // book_name: req.body.book_name,
@@ -202,7 +225,7 @@ arrows.forEach((arrow) => {
       fetch(`http://147.182.205.177:5000/book/${localStorage.getItem("user_id")}`, {
         method: "POST",
         body: files,
-        
+
       }).then(res => res.json()).then(data => console.log(data))
       post_section.style.display = "none"
     }
@@ -248,12 +271,3 @@ function checkBooks() {
 function App() {
   checkBooks()
 }
-
-function deleteBtn() {
-  let trash_btn = document.querySelector('.trash-btn')
-  trash_btn.addEventListener("click", (e) => {
-    console.log(e.target.parentElement);
-  })
-}
-
-deleteBtn()

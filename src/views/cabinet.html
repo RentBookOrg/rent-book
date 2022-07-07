@@ -47,6 +47,8 @@
             <li class="books-item">
               <div class="item-top">
                 <p class="sale">Sale</p>
+                <img width="150" height="150" alt="template image" class="item-img"
+                      data-book-img>
                 <div class="item-wrapper">
                   <button class="bucket-btn item-wrapper-btn btn">
                     <i class="fa-solid fa-basket-shopping"></i>
@@ -69,11 +71,10 @@
                     </p>
                   </div>
                 </div>
-                <del class="book-del" data-book-old-price>14$</del><ins class="book-price" data-book-price>4$</ins>
-                <p class="book-price-rent" data-book-rent-price>0$</p>
+                <p class="book-price" data-book-price>0$</p>
               </div>
               <div class="book-btn-container">
-                <button class="btn danger-btn trash-btn">DELETE</button>
+                <button class="btn danger-btn trash-btn" data-delete-btn>DELETE</button>
               </div>
             </li>
           </template>

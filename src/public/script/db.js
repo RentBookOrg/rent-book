@@ -16,9 +16,7 @@ export const getCategories = async (data) => fetch("http://147.182.205.177:5000/
 
 export const get_UserInfo = async (user_id) => fetch(`http://147.182.205.177:5000/user?user_id=${user_id}`)
 
-
 export const getBooksById = async(id) => fetch(`http://147.182.205.177:5000/book/location?location_id=${id}`);
-
 
 export const resend_verification = async(user_id) => fetch(`http://147.182.205.177:5000/resend/${user_id}`)
 
@@ -52,3 +50,5 @@ export let sendJSON = (data,link)=>{
 }
 
 export let login = async() => fetch("http://147.182.205.177:5000/register").then(res => res.json())
+
+export let deleteBook = async(id, book_id) => fetch(`http://147.182.205.177:5000/book/delete/${id}/${book_id}`)
