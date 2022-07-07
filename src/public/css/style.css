@@ -31,7 +31,7 @@ body {
   position: relative;
   margin: 0;
   font-family: var(--main-font-family);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 h1,
@@ -642,26 +642,26 @@ a {
   color: rgba(0, 0, 0, 0.7);
 }
 
-.buy-btn {
+.order-btn {
   margin-right: 20px;
-  padding: 10px 15px;
+  padding: 10px 10px;
   border: 2px solid transparent;
   outline: none;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 12px;
   background-color: var(--clr-primary) !important;
   color: var(--clr-white);
 }
 
-.buy-btn:hover {
+.order-btn:hover {
   border-color: var(--clr-primary);
   background-color: var(--clr-white) !important;
   color: var(--clr-primary);
 
 }
 
-.buy-btn:focus {
+.order-btn:focus {
   box-shadow: 0 0 4px 5px var(--clr-primary-light);
 }
 
@@ -772,7 +772,7 @@ a {
 }
 
 .post-section {
-  /* display: none; */
+  display: none;
   position: relative;
 }
 

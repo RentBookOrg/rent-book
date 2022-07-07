@@ -1,5 +1,7 @@
 export const getBookLocationsFromDb = async () => fetch("http://147.182.205.177:5000/locations")
 
+export const getBooksByLocation = async () => fetch(`http://147.182.205.177:5000/book/location?location_id=${window.localStorage.getItem("user_location_id")}`)
+
 export const get_UserId = async (data) => fetch("http://147.182.205.177:5000/register",{
   method:"POST",
   headers:{
@@ -7,6 +9,8 @@ export const get_UserId = async (data) => fetch("http://147.182.205.177:5000/reg
   },
   body:JSON.stringify(data)
 }).then(res => res.json())
+
+export const getUserBooks = async ()=> fetch(`http://147.182.205.177:5000/book/user?userId=${window.localStorage.getItem("user_id")}`)
 
 export const getCategories = async (data) => fetch("http://147.182.205.177:5000/categories")
 

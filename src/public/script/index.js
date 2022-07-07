@@ -19,7 +19,6 @@ if(USER_LOCATION_ID){
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (location_select.value === "O'z hududingizni tanlang") return
-   
 })
 
 if (!modal.style.display === "none") {

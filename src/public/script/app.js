@@ -1,4 +1,4 @@
-import { getCategories } from "./db.js";
+import { getCategories, getBooksByLocation } from "./db.js";
 let books_list = document.querySelector(".books-list");
 let books_bottom = document.querySelector(".books-bottom");
 let search_input = document.querySelector("[data-search]");
@@ -7,6 +7,8 @@ let books_container = document.querySelector("[data-book-template]");
 let category_template = document.querySelector("[data-category-template]")
 let category_list = document.querySelector(".category-list")
 let books = [];
+
+
 
 
 // handle search bar error
@@ -96,25 +98,19 @@ filter_books.addEventListener("change", (e) => {
   });
 });
 
-// render books
-
 let displayMenuItems = (menuItems) => {
   books = menuItems.map((item) => {
-    let parsed_price = Math.floor(parseFloat(item.price.replace("$", "")));
+    let parsed_price = item.book_mode === "rent" ? `${item.book_rent_prize} so'm/12 oy` : `${item.book_prize} so'm`;
     let card = books_container.content.cloneNode(true).children[0];
     let img = card.querySelector("[data-book-img]");
-    img.src = item.picture
+    img.setAttribute("src",`http://147.182.205.177:5000/${item.book_picture}`);
     let name = card.querySelector("[data-book-name]");
-    name.textContent = item.title;
+    name.textContent = item.book_name;
     let desc = card.querySelector(".book-desc");
-    desc.textContent = item.subtitle
-    let old_price = card.querySelector("[data-book-old-price]");
-    old_price.textContent = parsed_price > 0 ? `${parsed_price + 10}$` : "";
+    desc.textContent = item.book_description
     let price = card.querySelector("[data-book-price]");
     price.textContent = `${parsed_price}$`;
-    let rent_price = card.querySelector("[data-book-rent-price]");
-    rent_price.textContent =
-      parsed_price > 0 ? `${Math.floor(parsed_price / 12)}$ / 12 months` : "";
+    
     books_list.append(card);
     //  return the book
     return {
@@ -159,4 +155,4 @@ renderCategories()
 //   .then((response) => response.json())
 //   .then((data) => console.log(data));
 
-// export default displayMenuItems;
+export default displayMenuItems;

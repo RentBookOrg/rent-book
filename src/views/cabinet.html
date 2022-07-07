@@ -73,7 +73,6 @@
                 <p class="book-price-rent" data-book-rent-price>0$</p>
               </div>
               <div class="book-btn-container">
-                <button class="btn buy-btn" href="#">Buy now</button>
                 <button class="btn danger-btn trash-btn">DELETE</button>
               </div>
             </li>
@@ -81,7 +80,7 @@
         </ul>
       </div>
       <div class="btn-container">
-        <button class="btn primary-btn cabinet-cta comments-btn">Comments</button>
+        <!-- <button class="btn primary-btn cabinet-cta comments-btn">Comments</button> -->
         <button class="btn primary-btn cabinet-cta post-btn">
           POST BOOK
         </button>
@@ -98,7 +97,7 @@
       </div>
     </div>
     <form class="form-field" data-post-form enctype="multipart/form-data">
-      <div class="form-container field-name inactive" for="name">
+      <div class="form-container field-name active" for="name">
         <input class="post-input" type="text" name="name" aria-label="enter your book's name" id="name"
           placeholder="Your book's name" required />
         <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
@@ -112,9 +111,9 @@
           <i class="fas fa-arrow-down"></i>
         </button>
       </div>
-      <div class="form-container field-category active">
+      <div class="form-container field-category inactive">
         <select class="books_category_list" name="book_category_list">
-          <option class="books_category_item" value="" selected hidden>Choose category</option>
+          <option class="books_category_item" selected disabled>Choose category</option>
 
         </select>
         <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
@@ -124,9 +123,9 @@
       <!-- sent or rell functionality will be added later -->
       <div class="form-container field-radio inactive">
         <label for="sell">Sell</label>
-        <input class="post-input" type="radio" name="book_mode" id="sell" />
+        <input class="post-input" type="radio" name="book_mode" id="sell" value="sell" />
         <label for="rent">Rent</label>
-        <input class="post-input" type="radio" name="book_mode" id="rent" />
+        <input class="post-input" type="radio" name="book_mode" id="rent" value="rent" />
         <button class="btn form-btn">
           <i class="fas fa-arrow-down"></i>
         </button>
@@ -173,7 +172,7 @@
       <!-- book picture -->
 
       <div class="form-container field-img inactive">
-        <input class="post-input" type="file" name="book_img" id="book_img" accept="image/png, image/jpeg"
+        <input class="post-input" type="file" name="file" id="book_img" accept="image/png, image/jpeg"
           placeholder="Upload an image of your book" required />
         <button class="btn form-btn" aria-label="click on the button to navigate to the next input">
           <i class="fas fa-arrow-down"></i>
@@ -199,6 +198,9 @@
     </div>
 
   </div>
+
+
+
 
   <!-- <script src="./script/app.js"></script> -->
   <!-- <script type="module" src="./script/index.js"></script> -->
