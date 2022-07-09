@@ -42,12 +42,13 @@ modalBtn.addEventListener("click", async (e) => {
                 return data
             });
             console.log(option.dataset.location_id);
-            book_location_id = `${option.dataset.location_id}`
+            let book_location_id = `${option.dataset.location_id}`
+            window.localStorage.setItem("user_location_id",book_location_id);
             console.log(typeof book_location_id);
-            let filtered_books = await getBooksById(book_location_id).then(res => res.json()).then(data => {
-                console.log(data);
-                return data
-            })
+            // let filtered_books = await getBooksById(book_location_id).then(res => res.json()).then(data => {
+            //     console.log(data);
+            //     return data
+            // })
 
         }
     })

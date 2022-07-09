@@ -123,9 +123,7 @@
                     <img src="./images/modal.svg" width="150" height="150" alt="template image" class="item-img"
                       data-book-img>
                     <div class="item-wrapper">
-                      <button class="bucket-btn item-wrapper-btn btn">
-                        <i class="fa-solid fa-basket-shopping"></i>
-                      </button>
+                      
                       <button class="like-btn item-wrapper-btn btn">
                         <i class="fa-solid fa-heart"></i>
                       </button>
@@ -145,10 +143,9 @@
                     <p class="book-price-rent" data-book-rent-price></p>
                   </div>
                   <div class="btn-container">
-                    <button class="order-btn btn" href="#">Order now</button>
-                    <button class="cart-btn btn">
-                      Add
-                      <i class="fa-solid fa-cart-shopping"></i>
+                    <button class="order-btn btn" href="#">Buy now</button>
+                    <button class="rent-btn danger-btn btn">
+                      Rent now
                     </button>
                   </div>
                 </li>
@@ -161,8 +158,34 @@
 
     </div>
   </section>
+
+
+  <section class="order-form-section">
+    <div class="order-form-wrapper">
+      <form class="order-form">
+        <label class="order-form-label name-field">
+          <input type="text" minlength="3" name="user_name" id="user_name" placeholder="enter your name" required>
+        </label>
+        <label class="order-form-label surname-field">
+          <input type="text" minlength="3" name="user_surname" id="user_surname" placeholder="enter your surname" required>
+        </label>
+        <label class="order-form-label phone-field">
+          <input type="tel" aria-label="Enter your phone" minlength="13" name="user_phone" id="user_phone" placeholder="+998" required>
+        </label>
+        <label class="order-form-label email-field">
+          <input type="email" aria-label="Enter your email" name="user_email" id="user_email" placeholder="enter your email"  required>
+        </label>
+        <label class="order-form-label return-field">
+          <input type="datetime-local" aria-label="Enter your" name="user_return_date" id="user_return_date" required>
+        </label>
+
+        <button class="btn primary-btn order-submit-btn" type="submit">Submit</button>
+        
+      </form>
+    </div>
+  </section>
   <!-- script -->
-  <script src="../public/script/order.js"></script>
+  <script type="module" src="../public/script/order.js"></script>
   <script type="module" src="../public/script/location.js"></script>
   <script type="module" src="./script/app.js"></script>
   <script type="module" src="./script/index.js"></script>

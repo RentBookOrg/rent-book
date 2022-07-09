@@ -77,7 +77,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
     // comments_btn.style.display = "block"
   } else {
     post_btn.style.display = "none"
-    comments_btn.style.display = "none"
+    // comments_btn.style.display = "none"
   }
 
 })
