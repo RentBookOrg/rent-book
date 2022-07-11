@@ -97,6 +97,7 @@
                 </a>
               </li>
             </template>
+            <li class="category-item">All</li>
           </ul>
         </div>
 
@@ -122,12 +123,6 @@
                     <p class="sale">Sale</p>
                     <img src="./images/modal.svg" width="150" height="150" alt="template image" class="item-img"
                       data-book-img>
-                    <div class="item-wrapper">
-                      
-                      <button class="like-btn item-wrapper-btn btn">
-                        <i class="fa-solid fa-heart"></i>
-                      </button>
-                    </div>
                   </div>
                   <div class="book-info">
                     <div class="info-container">
@@ -144,9 +139,9 @@
                   </div>
                   <div class="btn-container">
                     <button class="order-btn btn" href="#">Buy now</button>
-                    <button class="rent-btn danger-btn btn">
+                    <!-- <button class="rent-btn danger-btn btn">
                       Rent now
-                    </button>
+                    </button> -->
                   </div>
                 </li>
               </template>
@@ -170,7 +165,7 @@
           <input type="text" minlength="3" name="user_surname" id="user_surname" placeholder="enter your surname" required>
         </label>
         <label class="order-form-label phone-field">
-          <input type="tel" aria-label="Enter your phone" minlength="13" name="user_phone" id="user_phone" placeholder="+998" required>
+          <input type="tel" aria-label="Enter your phone" minlength="12" name="user_phone" id="user_phone" placeholder="+998" required>
         </label>
         <label class="order-form-label email-field">
           <input type="email" aria-label="Enter your email" name="user_email" id="user_email" placeholder="enter your email"  required>
@@ -184,10 +179,21 @@
       </form>
     </div>
   </section>
+
+
+  <section class="loader">
+    <div class="container">
+      <div class="section-wrapper">
+        <h1>Creating innovation for people everyday</h1>
+      </div>
+    </div>
+  </section>
   <!-- script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="module" src="../public/script/loader.js"></script>
   <script type="module" src="../public/script/order.js"></script>
-  <script type="module" src="../public/script/location.js"></script>
   <script type="module" src="./script/app.js"></script>
+  <script type="module" src="../public/script/location.js"></script>
   <script type="module" src="./script/index.js"></script>
 </body>
 

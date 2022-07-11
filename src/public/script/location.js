@@ -1,5 +1,4 @@
 import { getBookLocationsFromDb, getBooksByLocation, login } from './db.js';
-import displayMenuItems from './app.js'
 
 let form = document.querySelector(".modal-form");
 let options = form.querySelectorAll("option");
@@ -15,9 +14,6 @@ let locations
 locations = await getBookLocationsFromDb().then(res => res.json()).then(data => {
     return data
 })
-if (isUserLocated) {
-    await getBooksByLocation().then(res => res.json()).then(data => displayMenuItems(data.data[0]))
-}
 
 
 

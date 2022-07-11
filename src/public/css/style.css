@@ -182,6 +182,8 @@ a {
 .site-header {
   padding-block: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .header-wrapper {
@@ -385,6 +387,11 @@ a {
 
 /* books */
 
+.books-section{
+  opacity: 0;
+  pointer-events: "none";
+}
+
 .books-top-wrapper {
   display: flex;
   justify-content: space-between;
@@ -470,6 +477,7 @@ a {
 .category-item {
   margin-bottom: 10px;
   padding-left: 10px;
+  cursor: pointer;
 }
 
 .category-item:not(:last-child) {
@@ -688,6 +696,8 @@ a {
   justify-content: center;
   align-items: center;
   padding: 100px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .cabinet-wrapper {
@@ -726,6 +736,7 @@ a {
 }
 
 .verify-message{
+  display: none;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1118,6 +1129,68 @@ a {
 .order-form input{
   padding: 1rem;
   border-radius: 8px;
+}
+
+.saved-orders{
+  padding: 100px 2rem;
+  background-color:#f2f2f2;
+}
+
+.orders-list{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.orders-list li{
+  display: flex;
+  align-items: center;
+  padding-inline: 1rem;
+  width: 40%;
+  box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.restore-btn{
+  padding: 10px 25px;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-left: auto;
+}
+
+.loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-black);
+  z-index: 10;
+  color: var(--clr-white);
+  font-size: 30px;
+}
+
+.loader h1{
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  letter-spacing: 1px;
+}
+
+.loader h1 span{
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+.loader h1 span.fade{
+  transform: translateY(0);
+  opacity: 1;
 }
 
 

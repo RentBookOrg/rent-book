@@ -1,6 +1,17 @@
 import { get_UserId, get_UserInfo, resend_verification, getCategories, getUserBooks, deleteBook } from './db.js';
 import displayMenuItems from './render.js'
 
+let tl = gsap.timeline()
+
+tl.to(".site-header",{
+  opacity:1,
+  pointerEvents:"all",
+  duration:0.5
+}).to(".user-books",{
+  opacity:1,
+  pointerEvents:"all",
+  duration:1
+})
 
 const CATEGORIES_SELECT = document.querySelector(".books_category_list")
 let books_list = document.querySelector(".books-list");
@@ -16,6 +27,8 @@ let verify_btn = document.querySelector(".resend-btn");
 let cabinet_username = document.querySelector(".cabinet-username");
 let arrows = document.querySelectorAll(".post-section button");
 let book_template = document.querySelector("[data-book-template]")
+let orders_list = document.querySelector(".orders-list");
+let saved_order_template = document.querySelector("[data-saved-order]");
 let heading = document.createElement("h1");
 let books = []
 let book = {}
@@ -47,7 +60,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
       book_img.setAttribute("src", `http://147.182.205.177:5000/${book.book_picture}`)
       book_link.textContent = book.book_name
       book_description.textContent = book.book_description
-      book_price = book.book_prize;
+      book_price.textContent = book.book_prize + " so'm";
       books_list.append(book_item)
     })
   })
@@ -218,10 +231,12 @@ arrows.forEach((arrow) => {
       files.append("book_prize", book.book_prize)
       files.append("book_rent_prize", book.book_prize - 10)
       files.append("book_language", "Uzbek")
-      files.append("book_count", book.book_count)
+      files.append("book_count", parseInt(book.book_count))
       files.append("book_status", "New")
       files.append("file", input.files[0])
+      console.log(Object.fromEntries(files));
 
+      console.log(typeof files.get("book_count"));
       fetch(`http://147.182.205.177:5000/book/${localStorage.getItem("user_id")}`, {
         method: "POST",
         body: files,

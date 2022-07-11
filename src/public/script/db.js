@@ -18,7 +18,13 @@ export const buyBook = async(data,book_id) => fetch(`http://147.182.205.177:5000
   body:JSON.stringify(data)
 })
 
-export const rentBook = async(book_id) => fetch(`http://147.182.205.177:5000/order/${book_id}/rent`)
+export const rentBook = async(data,book_id) => fetch(`http://147.182.205.177:5000/order/${book_id}/rent`,{
+  method:"POST",
+  headers:{
+    "Content-Type":"application/json"
+  },
+  body:JSON.stringify(data)
+})
 
 export const getUserBooks = async ()=> fetch(`http://147.182.205.177:5000/book/user?userId=${window.localStorage.getItem("user_id")}`)
 
