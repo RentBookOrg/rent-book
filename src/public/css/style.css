@@ -785,6 +785,7 @@ a {
 .post-section {
   display: none;
   position: relative;
+  z-index: 10;
 }
 
 .form-field {
@@ -849,6 +850,14 @@ a {
 .form-container .form-btn{
   position: absolute;
   right: 10px;
+}
+
+.img-label input{
+  display: none;
+}
+
+.img-label{
+  cursor: pointer;
 }
 
 .post-input, textarea {

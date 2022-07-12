@@ -1,20 +1,20 @@
 import { get_UserId, get_UserInfo, resend_verification, getCategories, getUserBooks, deleteBook } from './db.js';
 import displayMenuItems from './render.js'
 
-if(!window.localStorage.getItem("user_id")){
+if (!window.localStorage.getItem("user_id")) {
   location.href = "./views/register.html";
 }
 
 let tl = gsap.timeline()
 
-tl.to(".site-header",{
-  opacity:1,
-  pointerEvents:"all",
-  duration:0.5
-}).to(".user-books",{
-  opacity:1,
-  pointerEvents:"all",
-  duration:1
+tl.to(".site-header", {
+  opacity: 1,
+  pointerEvents: "all",
+  duration: 0.5
+}).to(".user-books", {
+  opacity: 1,
+  pointerEvents: "all",
+  duration: 1
 })
 
 const CATEGORIES_SELECT = document.querySelector(".books_category_list")
@@ -40,34 +40,7 @@ let book = {}
 
 // check if user's email is verified or not
 window.addEventListener("DOMContentLoaded", async (e) => {
-
-  // get user books
-  await getUserBooks().then(res => res.json()).then(data => {
-    data.data.forEach(book => {
-      console.log(book);
-      let book_item = book_template.content.cloneNode(true);
-      let book_link = book_item.querySelector(".book-link");
-      let book_description = book_item.querySelector(".book-desc");
-      let book_price = book_item.querySelector(".book-price");
-      let book_img = book_item.querySelector("[data-book-img]");
-      let trash_btn = book_item.querySelector("[data-delete-btn]")
-      let item = book_item.querySelector("li");
-      item.dataset.id = book.book_id
-      
-      trash_btn.addEventListener("click",async(e)=>{
-        await deleteBook(window.localStorage.getItem("user_id"),e.target.parentElement.parentElement.dataset.id).then(res => res.json()).then(data => {
-          if(data.status === 200){
-            item.remove()
-          }
-        })
-      })
-      book_img.setAttribute("src", `http://147.182.205.177:5000/${book.book_picture}`)
-      book_link.textContent = book.book_name
-      book_description.textContent = book.book_description
-      book_price.textContent = book.book_prize + " so'm";
-      books_list.append(book_item)
-    })
-  })
+  renderUserBooks();
 
   // render categories
   let categories = await getCategories().then(res => res.json()).then(data => {
@@ -101,6 +74,36 @@ window.addEventListener("DOMContentLoaded", async (e) => {
   }
 
 })
+
+async function renderUserBooks() {
+  // get user books
+  await getUserBooks().then(res => res.json()).then(data => {
+    data.data.forEach(book => {
+      console.log(book);
+      let book_item = book_template.content.cloneNode(true);
+      let book_link = book_item.querySelector(".book-link");
+      let book_description = book_item.querySelector(".book-desc");
+      let book_price = book_item.querySelector(".book-price");
+      let book_img = book_item.querySelector("[data-book-img]");
+      let trash_btn = book_item.querySelector("[data-delete-btn]")
+      let item = book_item.querySelector("li");
+      item.dataset.id = book.book_id
+
+      trash_btn.addEventListener("click", async (e) => {
+        await deleteBook(window.localStorage.getItem("user_id"), e.target.parentElement.parentElement.dataset.id).then(res => res.json()).then(data => {
+          if (data.status === 200) {
+            item.remove()
+          }
+        })
+      })
+      book_img.setAttribute("src", `http://147.182.205.177:5000/${book.book_picture}`)
+      book_link.textContent = book.book_name
+      book_description.textContent = book.book_description
+      book_price.textContent = book.book_prize + " so'm";
+      books_list.append(book_item)
+    })
+  })
+}
 
 // verify button click
 verify_btn.addEventListener("click", async () => {
@@ -242,13 +245,19 @@ arrows.forEach((arrow) => {
       files.append("book_status", "New")
       files.append("file", input.files[0])
       console.log(Object.fromEntries(files));
+      input.value = ""
+
 
       console.log(typeof files.get("book_count"));
       fetch(`http://147.182.205.177:5000/book/${localStorage.getItem("user_id")}`, {
         method: "POST",
         body: files,
 
-      }).then(res => res.json()).then(data => console.log(data))
+      }).then(res => res.json()).then(data => {
+        if (data.status === 200) {
+          location.reload()
+        }
+      })
       post_section.style.display = "none"
     }
   });
