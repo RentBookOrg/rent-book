@@ -388,6 +388,7 @@ a {
 /* books */
 
 .books-section{
+  min-height: 86.5vh;
   opacity: 0;
   pointer-events: "none";
 }

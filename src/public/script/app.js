@@ -13,6 +13,8 @@ let order_submit_btn = document.querySelector(".order-submit-btn");
 let books = [];
 let form = document.querySelector(".modal-form");
 let options = form.querySelectorAll("option");
+let verify_message = document.querySelector(".verify-message");
+let verify_text = verify_message.querySelector("p");
 
 let locations = await getBookLocationsFromDb().then(res => res.json()).then(data => {
   return data.data
@@ -316,6 +318,11 @@ if (isUserLocated) {
       if (!item.book_available) return
       displayCategories(item.category_id)
     })
+    if(data.message === "Currently books are not available in your area. Please, check other areas books"){
+      books_list.style.pointerEvents = "none"
+      verify_message.style.display = "block";
+      verify_text.textContent = "Currently books are not available in your area. Due to our criterias, you can't buy or rent any books. But you can see all available books that we have"
+    }
     displayMenuItems(data.data)
   })
 
