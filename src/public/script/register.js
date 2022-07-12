@@ -16,7 +16,7 @@ let err_text = error.querySelector("p");
 // user_fullname
 // password
 
-if(is_user_registered) location.href = "./views/cabinet.html"
+if (is_user_registered) location.href = "./views/cabinet.html"
 
 login_link.addEventListener("click", (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ form.addEventListener("submit", (e) => {
     //     5. phone number
     //     6. password
     //     7. location
-    if (validate_username(name.value) && validate_username(username.value) && validate_email(email.value) && validate_password(password.value)) {
+    if (name.value.length >= 3 && validate_username(username.value) && validate_email(email.value) && validate_password(password.value)) {
         user.name = name.value
         user.surname = name.value
         user.username = username.value
@@ -58,7 +58,25 @@ form.addEventListener("submit", (e) => {
         getId(user)
         // location.href = "./views/cabinet.html"
     } else {
-        alert("OOPs")
+        if (name.value.length < 3) {
+            error.style.display = "block"
+            error.style.transform = `translateY(0%)`;
+            err_text.textContent = "Please make sure that your name has at least 3 characters";
+        }
+        else if (!validate_username(username.value)) {
+            error.style.display = "block"
+            error.style.transform = `translateY(0%)`;
+            err_text.textContent = "Please make sure that your username has at least 6 characters";
+        }
+        else if (!validate_password(password.value)) {
+            error.style.display = "block"
+            error.style.transform = `translateY(0%)`;
+            err_text.textContent = "Please make sure that your password has at least 8 characters -> at least one uppercase and lowercase letter, and at least one digit";
+        }else if(!validate_email(email.value)){
+            error.style.display = "block"
+            error.style.transform = `translateY(0%)`;
+            err_text.textContent = "Please enter valid email adress"
+        }
     }
 })
 

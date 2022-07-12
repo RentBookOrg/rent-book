@@ -1,6 +1,6 @@
 export const getBookLocationsFromDb = async () => fetch("http://147.182.205.177:5000/locations")
 
-export const getBooksByLocation = async () => fetch(`http://147.182.205.177:5000/book/location?location_id=${window.localStorage.getItem("user_location_id")}`)
+export const getBooksByLocation = async (location_id) => fetch(`http://147.182.205.177:5000/book/location?location_id=${location_id}`)
 
 export const get_UserId = async (data) => fetch("http://147.182.205.177:5000/register",{
   method:"POST",

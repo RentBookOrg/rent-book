@@ -1,6 +1,10 @@
 import { get_UserId, get_UserInfo, resend_verification, getCategories, getUserBooks, deleteBook } from './db.js';
 import displayMenuItems from './render.js'
 
+if(!window.localStorage.getItem("user_id")){
+  location.href = "./views/register.html";
+}
+
 let tl = gsap.timeline()
 
 tl.to(".site-header",{
@@ -90,7 +94,10 @@ window.addEventListener("DOMContentLoaded", async (e) => {
     // comments_btn.style.display = "block"
   } else {
     post_btn.style.display = "none"
-    // comments_btn.style.display = "none"
+    // // comments_btn.style.display = "none"
+    // verify_message.style.display = "block"
+    // verify_message.textContent = "Please check your email and verify your account"
+    verify_message.style.display = "block"
   }
 
 })

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Error</title>
+    <!-- icon -->
+    <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">
+    <!-- css -->
+    <link rel="stylesheet" href="../public/css/normalize.css">
+    <link rel="stylesheet" href="../public/css/style.css" />
+</head>
+
+<body>
+    <!-- site header start -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-wrapper">
+                <a class="site-logo" href="./index.html">
+                    <img class="site-logo-img" src="../public/images/logo-primary.svg" alt="Rent book logo" width="282"
+                        height="72" />
+                </a>
+
+            </div>
+        </div>
+    </header> <!-- site header end -->
+
+
+    <section class="not_found">
+        <h1 class="not_found_title"> <span class="not-found-message">404</span> Page not found</h1>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
+        integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let tl = gsap.timeline();
+        tl.to(".site-header", {
+            opacity: 1,
+            pointerEvents: "all",
+            duration: 0.5
+        })
+    </script>
+</body>
+
+</html>

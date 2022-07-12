@@ -1,4 +1,4 @@
-import { getCategories, getBooksByLocation, get_UserId, buyBook, rentBook, get_UserInfo, getBookLocationsFromDb } from "./db.js";
+import { getCategories, getBooksByLocation, get_UserId, buyBook, rentBook, get_UserInfo, getBookLocationsFromDb, getBooksById } from "./db.js";
 let books_list = document.querySelector(".books-list");
 let books_bottom = document.querySelector(".books-bottom");
 let search_input = document.querySelector("[data-search]");
@@ -11,6 +11,25 @@ let order_section = document.querySelector(".order-form-section");
 let order_form = document.querySelector(".order-form");
 let order_submit_btn = document.querySelector(".order-submit-btn");
 let books = [];
+let form = document.querySelector(".modal-form");
+let options = form.querySelectorAll("option");
+
+let locations = await getBookLocationsFromDb().then(res => res.json()).then(data => {
+  return data.data
+})
+
+options.forEach((option) => {
+
+  locations.forEach(async (location) => {
+    if (location.location_name === capitalizeFirstLetter(option.value)) {
+      option.setAttribute("data-location_id", location.location_id)
+      let book_location_id = location.location_id
+    }
+  });
+
+})
+
+
 
 
 
@@ -141,9 +160,9 @@ filter_books.addEventListener("change", (e) => {
   });
 });
 
-let displayMenuItems = (menuItems) => {
+export let displayMenuItems = (menuItems) => {
   books = menuItems.map((item) => {
-    if(!item.book_available) return;
+    if (!item.book_available) return;
     let parsed_price = item.book_mode === "rent" ? `${item.book_rent_prize} so'm/12 oy` : `${item.book_prize} so'm`;
     let card = books_container.content.cloneNode(true).children[0];
     card.dataset.id = item.book_id
@@ -183,30 +202,105 @@ let displayMenuItems = (menuItems) => {
   });
 };
 
-let displayCategories = async(category_id) => {
+export let displayCategories = async (category_id) => {
   await getCategories().then(res => res.json()).then(data => {
     data.data.forEach(category => {
       let template = category_template.content.cloneNode(true).children[0];
-      console.log(category_id, category.category_id);
-      if(category_id === category.category_id){
+      if (category_id === category.category_id) {
         template.textContent = category.category_name;
         category_list.append(template);
       }
       let all_books = category_list.querySelector(".category-item");
-      all_books.addEventListener("click",()=>{
+      all_books.addEventListener("click", () => {
         books.forEach(book => {
           book.element.classList.remove("hide");
         })
       })
-      template.addEventListener("click",(e)=>{
+      template.addEventListener("click", (e) => {
         books.forEach(book => {
           let isVisible = book.element.dataset.category_id === category.category_id;
-          book.element.classList.toggle("hide",!isVisible)
+          book.element.classList.toggle("hide", !isVisible)
         })
       })
     })
   })
 }
+
+
+const USER_LOCATION_ID = window.localStorage.getItem("user_location_id");
+let modal = document.querySelector(".modal");
+let location_select = document.querySelector(".location_select");
+let modalBtn = document.querySelector(".modal-btn");
+let user = {}
+
+// check if user has already chosen his/her location before
+if (USER_LOCATION_ID) {
+  modal.style.display = "none"
+}
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (location_select.value === "O'z hududingizni tanlang") return
+})
+
+if (!modal.style.display === "none") {
+  document.body.style.overflow = "visible"
+}
+
+
+location_select.addEventListener("change", () => {
+  console.log(location_select.value);
+  locations.forEach(location => {
+    console.log(location.location_name.replace("'", ""), capitalizeFirstLetter(location_select.value));
+    if (location.location_name === location_select.value) {
+      console.log("Match");
+      window.localStorage.setItem("user_location_id", location.location_id);
+      window.localStorage.setItem("user_location", location.location_name);
+
+      return
+    }
+  })
+  modalBtn.classList.remove("not-allowed")
+})
+
+
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+modalBtn.addEventListener("click", async (e) => {
+  e.preventDefault();
+  if (location_select.value === "O'z hududingizni tanlang") return
+  let book_location_id
+  options.forEach(async (option) => {
+    if (capitalizeFirstLetter(option.value) === capitalizeFirstLetter(location_select.value)) {
+      let books_by_id = await getBooksById(option.dataset.location_id).then(res => res.json()).then(data => {
+        data.data.forEach(item => {
+          if (!item.book_available) return
+          displayCategories(item.category_id)
+        })
+        return data.data
+      });
+      displayMenuItems(books_by_id)
+      console.log(option.dataset.location_id);
+      book_location_id = option.dataset.location_id
+      window.localStorage.setItem("user_location_id", book_location_id);
+      console.log(typeof book_location_id);
+      // let filtered_books = await getBooksById(book_location_id).then(res => res.json()).then(data => {
+      //     console.log(data);
+      //     return data
+      // })
+
+    }
+  })
+
+  modal.style.display = "none"
+  document.body.style.overflow = "visible"
+  location_select.value = "";
+  console.log(user);
+})
+
 
 let isUserLocated
 if (window.localStorage.getItem("user_location_id")) {
@@ -216,26 +310,54 @@ if (window.localStorage.getItem("user_location_id")) {
 }
 
 if (isUserLocated) {
-  await getBooksByLocation().then(res => res.json()).then(data => {
+  console.log(USER_LOCATION_ID);
+  await getBooksById(USER_LOCATION_ID).then(res => res.json()).then(data => {
     data.data.forEach(item => {
-      displayCategories(item.category_id);
+      if (!item.book_available) return
+      displayCategories(item.category_id)
     })
     displayMenuItems(data.data)
   })
+
+}
+if (isUserLocated) {
+
 }
 
-// fetch("https://api.itbook.store/1.0/search/mongodb")
-//   .then((res) => res.json())
-//   .then((data) => {
-//     console.warn(books)
-//     displayMenuItems(data.books);
-//     displayCategories(data.books)
-//   });
+function navigateToCabinet() {
+  let cabinet_btn = document.querySelector(".cabinet-btn")
+  cabinet_btn.addEventListener("click", () => {
+    location.href = "./views/cabinet.html"
+  })
+}
+
+navigateToCabinet();
 
 
-// // send data
-// fetch("https://api.itbook.store/1.0/search/mongodb")
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
 
-export default displayMenuItems;
+// let isUserLocated
+// if (window.localStorage.getItem("user_location_id")) {
+//   isUserLocated = true
+// } else {
+//   isUserLocated = false
+// }
+
+// if (isUserLocated) {
+
+// }
+// if(isUserLocated){
+//   await getBooksByLocation(window.localStorage.getItem("user_location_id")).then(res => res.json()).then(data => {
+//     try{
+//       console.log(data);
+//       data.data.forEach(item => {
+//         displayCategories(item.category_id);
+//       })
+//       displayMenuItems(data.data)
+//     }
+//     catch(error){
+//       console.log(error);
+//     }
+//   })  
+// }
+
+

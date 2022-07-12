@@ -1194,6 +1194,26 @@ a {
 }
 
 
+/* 404 error */
+.not_found{
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-message{
+  font-size: 100px;
+  color: var(--clr-primary-dark);
+}
+
+.not_found_title{
+  font-size: 100px;
+  color: var(--clr-primary);
+  font-weight: lighter;
+  width: 60%;
+}
+
 @media (max-width: 576px) {
   .categories {
     display: none;
