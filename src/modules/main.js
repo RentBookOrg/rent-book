@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { route } from "express/lib/application";
 import { join } from "path";
 import { readFileSync } from "fs";
 
@@ -17,7 +16,7 @@ router.get("/register", (req, res) => {
   res.render("register");
 });
 
-route.get("/favicon.ico", (req, res) => {
+router.get("/favicon.ico", (req, res) => {
   res.sendFile(
     readFileSync(join(process.cwd(), "src", "public", "images", "favicon.ico"))
   );
