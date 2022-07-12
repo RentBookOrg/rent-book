@@ -16,12 +16,6 @@ router.get("/register", (req, res) => {
   res.render("register");
 });
 
-router.get("/favicon.ico", (req, res) => {
-  res.sendFile(
-    readFileSync(join(process.cwd(), "src", "public", "images", "favicon.ico"))
-  );
-});
-
 router.get("*", (req, res) => {
   res.render("404");
 });
