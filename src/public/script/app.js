@@ -59,7 +59,7 @@ order_submit_btn.addEventListener("click", async (e) => {
       send_data.address = location.location_name
     }
   })
-   (send_data);
+  console.log(send_data);
   let order_data
   if (order_form.dataset.mode === "buy") {
     order_data = await buyBook(send_data, order_form.dataset.book_id).then(res => res.json()).then(data => {
@@ -71,7 +71,7 @@ order_submit_btn.addEventListener("click", async (e) => {
       return data;
     })
   }
-   (order_data);
+  console.log(order_data);
   order_section.style.display = "none";
 
 
@@ -125,7 +125,7 @@ function sendJSON(data) {
     if (xhr.readyState === 4 && xhr.status === 200) {
 
       // Print received data from server
-       (this.responseText);
+      console.log(this.responseText);
 
     }
   };
@@ -254,11 +254,11 @@ if (!modal.style.display === "none") {
 
 
 location_select.addEventListener("change", () => {
-   (location_select.value);
+  console.log(location_select.value);
   locations.forEach(location => {
-     (location.location_name.replace("'", ""), capitalizeFirstLetter(location_select.value));
+    console.log(location.location_name.replace("'", ""), capitalizeFirstLetter(location_select.value));
     if (location.location_name === location_select.value) {
-       ("Match");
+      console.log("Match");
       window.localStorage.setItem("user_location_id", location.location_id);
       window.localStorage.setItem("user_location", location.location_name);
 
@@ -285,7 +285,7 @@ modalBtn.addEventListener("click", async (e) => {
           if (!item.book_available) return
           displayCategories(item.category_id)
         })
-         (data);
+        console.log(data);
         if (data.message === "Currently books are not available in your area. Please, check other areas books") {
           books_list.style.pointerEvents = "none"
           verify_message.style.display = "block";
@@ -294,12 +294,12 @@ modalBtn.addEventListener("click", async (e) => {
         return data.data
       });
       displayMenuItems(books_by_id)
-       (option.dataset.location_id);
+      console.log(option.dataset.location_id);
       book_location_id = option.dataset.location_id
       window.localStorage.setItem("user_location_id", book_location_id);
-       (typeof book_location_id);
+      console.log(typeof book_location_id);
       // let filtered_books = await getBooksById(book_location_id).then(res => res.json()).then(data => {
-      //      (data);
+      //     console.log(data);
       //     return data
       // })
 
@@ -309,7 +309,7 @@ modalBtn.addEventListener("click", async (e) => {
   modal.style.display = "none"
   document.body.style.overflow = "visible"
   location_select.value = "";
-   (user);
+  console.log(user);
 })
 
 
@@ -321,13 +321,13 @@ if (window.localStorage.getItem("user_location_id")) {
 }
 
 if (isUserLocated) {
-   (USER_LOCATION_ID);
+  console.log(USER_LOCATION_ID);
   await getBooksById(USER_LOCATION_ID).then(res => res.json()).then(data => {
     data.data.forEach(item => {
       if (!item.book_available) return
       displayCategories(item.category_id)
     })
-     (data);
+    console.log(data);
     if (data.message === "Currently books are not available in your area. Please, check other areas books") {
       books_list.style.pointerEvents = "none"
       verify_message.style.display = "block";
@@ -365,14 +365,14 @@ navigateToCabinet();
 // if(isUserLocated){
 //   await getBooksByLocation(window.localStorage.getItem("user_location_id")).then(res => res.json()).then(data => {
 //     try{
-//        (data);
+//       console.log(data);
 //       data.data.forEach(item => {
 //         displayCategories(item.category_id);
 //       })
 //       displayMenuItems(data.data)
 //     }
 //     catch(error){
-//        (error);
+//       console.log(error);
 //     }
 //   })  
 // }
