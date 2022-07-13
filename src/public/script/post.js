@@ -150,7 +150,11 @@ arrows.forEach((arrow) => {
       book.book_name = input.value;
 
     }
-    else if (input.name === "book_author" && validate_name(input)) {
+    else if (input.name === "book_author") {
+      if(input.value.length < 3){
+        alert("Make sure your book's author has at least 3 characters");
+        return
+      }
       error_div.style.display = "none";
       nextSlide(parent, nextForm);
       book.book_author = input.value;
@@ -182,28 +186,51 @@ arrows.forEach((arrow) => {
       nextSlide(parent, nextForm)
     }
     else if (input.name === "book_page") {
+      console.log(typeof input.value, typeof parseInt(input.value));
+      if(parseInt(input.value) < 10){
+        alert("Please make sure your book has at least 10 pages")
+        return;
+      }
       book.book_page = input.value
       files.append("book_page", input.value)
-
       nextSlide(parent, nextForm)
     }
     else if (input.name === "book_description") {
       book.book_description = input.value
+      if(input.value.length < 100 || input.value.length > 255){
+        alert("Please make sure your book's description has 100-255 characters");
+        return
+      }
       files.append("book_description", input.value)
 
       nextSlide(parent, nextForm)
     } else if (input.name === "book_price") {
+      if(parseInt(input.value) < 1000){
+        alert("The minimum price is 1000 soums");
+        return
+      }else if(parseInt(input.value) > 1000000){
+        alert("The maximum price is 1000000 soums");
+        return
+      }
       book.book_prize = input.value
       files.append("book_prize", input.value)
 
       nextSlide(parent, nextForm);
     } else if (input.name === "book_count") {
       book.book_count = input.value
+      if(parseInt(input.value) > 50){
+        alert("Sorry your book count can't be more than 50");
+        return
+      }
       files.append("book_count", input.value)
 
       nextSlide(parent, nextForm);
     }
     else if (input.type === "file") {
+      if(input.files.length === 0){
+        alert("Please choose an image!");
+        return
+      }
       error_div.style.display = "none";
       ;
       /*  const reader = new FileReader();
@@ -268,6 +295,7 @@ function validate_name(book) {
     error_div.style.display = "none !important";
     return true
   }
+  alert("Make sure your book's name has at least 3 characters");
   return false;
 }
 

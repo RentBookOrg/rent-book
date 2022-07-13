@@ -15,6 +15,11 @@ let form = document.querySelector(".modal-form");
 let options = form.querySelectorAll("option");
 let verify_message = document.querySelector(".verify-message");
 let verify_text = verify_message.querySelector("p");
+let cancel_btn = document.querySelector(".cancel-order");
+
+cancel_btn.addEventListener("click",()=>{
+  order_section.style.display = "none";
+})
 
 let locations = await getBookLocationsFromDb().then(res => res.json()).then(data => {
   return data.data

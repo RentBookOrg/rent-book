@@ -586,7 +586,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 100%;
+  margin-top: 15px;
 }
 
 .book-title {
@@ -1129,6 +1129,7 @@ a {
 }
 
 .order-form{
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -1160,6 +1161,12 @@ a {
   width: 40%;
   box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+}
+
+.cancel-order{
+  position: absolute;
+  top: 0;
+  right: 15%;
 }
 
 .restore-btn{
