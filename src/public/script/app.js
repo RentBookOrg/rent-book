@@ -17,7 +17,7 @@ let verify_message = document.querySelector(".verify-message");
 let verify_text = verify_message.querySelector("p");
 let cancel_btn = document.querySelector(".cancel-order");
 
-cancel_btn.addEventListener("click",()=>{
+cancel_btn.addEventListener("click", () => {
   order_section.style.display = "none";
 })
 
@@ -28,7 +28,7 @@ let locations = await getBookLocationsFromDb().then(res => res.json()).then(data
 options.forEach((option) => {
 
   locations.forEach(async (location) => {
-    if (location.location_name.replace("'","") === capitalizeFirstLetter(option.value)) {
+    if (location.location_name.replace("'", "") === capitalizeFirstLetter(option.value)) {
       option.setAttribute("data-location_id", location.location_id)
       let book_location_id = location.location_id
     }
@@ -59,7 +59,7 @@ order_submit_btn.addEventListener("click", async (e) => {
       send_data.address = location.location_name
     }
   })
-  console.log(send_data);
+   (send_data);
   let order_data
   if (order_form.dataset.mode === "buy") {
     order_data = await buyBook(send_data, order_form.dataset.book_id).then(res => res.json()).then(data => {
@@ -71,7 +71,7 @@ order_submit_btn.addEventListener("click", async (e) => {
       return data;
     })
   }
-  console.log(order_data);
+   (order_data);
   order_section.style.display = "none";
 
 
@@ -88,25 +88,23 @@ search_form.addEventListener("submit", e => {
 
 // search bar
 const filter_books_by_search = debounce(text => {
+
+  // if(text.length === 1)
   books.forEach(book => {
-    console.log(book);
+    if (book == undefined) return
     let card = book.element;
 
-    const isVisible = book.name.toLowerCase().includes(text.toLowerCase()) || book.subtitle.toLowerCase().includes(text.toLowerCase());
-
+    // const isVisible = book.name.toLowerCase().includes(text.toLowerCase()) || book.subtitle.toLowerCase().includes(text.toLowerCase());
+    let pattern = new RegExp(text, 'g');
+    let data = book.name.toLowerCase().match(pattern);
+    let isVisible = data != null
     card.classList.toggle("hide", !isVisible);
   })
 })
 
 search_input.addEventListener("input", (e) => {
 
-  if (e.target.value === "") {
-    books.forEach(book => {
-      let card = book.element
-      card.classList.remove("hide");
-    })
-    return
-  }
+  
   const text = e.target.value;
   filter_books_by_search(text)
 })
@@ -127,7 +125,7 @@ function sendJSON(data) {
     if (xhr.readyState === 4 && xhr.status === 200) {
 
       // Print received data from server
-      console.log(this.responseText);
+       (this.responseText);
 
     }
   };
@@ -256,11 +254,11 @@ if (!modal.style.display === "none") {
 
 
 location_select.addEventListener("change", () => {
-  console.log(location_select.value);
+   (location_select.value);
   locations.forEach(location => {
-    console.log(location.location_name.replace("'", ""), capitalizeFirstLetter(location_select.value));
+     (location.location_name.replace("'", ""), capitalizeFirstLetter(location_select.value));
     if (location.location_name === location_select.value) {
-      console.log("Match");
+       ("Match");
       window.localStorage.setItem("user_location_id", location.location_id);
       window.localStorage.setItem("user_location", location.location_name);
 
@@ -287,8 +285,8 @@ modalBtn.addEventListener("click", async (e) => {
           if (!item.book_available) return
           displayCategories(item.category_id)
         })
-        console.log(data);
-        if(data.message === "Currently books are not available in your area. Please, check other areas books"){
+         (data);
+        if (data.message === "Currently books are not available in your area. Please, check other areas books") {
           books_list.style.pointerEvents = "none"
           verify_message.style.display = "block";
           verify_text.textContent = "Currently books are not available in your area. Due to our criterias, you can't buy or rent any books. But you can see all available books that we have"
@@ -296,12 +294,12 @@ modalBtn.addEventListener("click", async (e) => {
         return data.data
       });
       displayMenuItems(books_by_id)
-      console.log(option.dataset.location_id);
+       (option.dataset.location_id);
       book_location_id = option.dataset.location_id
       window.localStorage.setItem("user_location_id", book_location_id);
-      console.log(typeof book_location_id);
+       (typeof book_location_id);
       // let filtered_books = await getBooksById(book_location_id).then(res => res.json()).then(data => {
-      //     console.log(data);
+      //      (data);
       //     return data
       // })
 
@@ -311,7 +309,7 @@ modalBtn.addEventListener("click", async (e) => {
   modal.style.display = "none"
   document.body.style.overflow = "visible"
   location_select.value = "";
-  console.log(user);
+   (user);
 })
 
 
@@ -323,14 +321,14 @@ if (window.localStorage.getItem("user_location_id")) {
 }
 
 if (isUserLocated) {
-  console.log(USER_LOCATION_ID);
+   (USER_LOCATION_ID);
   await getBooksById(USER_LOCATION_ID).then(res => res.json()).then(data => {
     data.data.forEach(item => {
       if (!item.book_available) return
       displayCategories(item.category_id)
     })
-    console.log(data);
-    if(data.message === "Currently books are not available in your area. Please, check other areas books"){
+     (data);
+    if (data.message === "Currently books are not available in your area. Please, check other areas books") {
       books_list.style.pointerEvents = "none"
       verify_message.style.display = "block";
       verify_text.textContent = "Currently books are not available in your area. Due to our criterias, you can't buy or rent any books. But you can see all available books that we have"
@@ -367,14 +365,14 @@ navigateToCabinet();
 // if(isUserLocated){
 //   await getBooksByLocation(window.localStorage.getItem("user_location_id")).then(res => res.json()).then(data => {
 //     try{
-//       console.log(data);
+//        (data);
 //       data.data.forEach(item => {
 //         displayCategories(item.category_id);
 //       })
 //       displayMenuItems(data.data)
 //     }
 //     catch(error){
-//       console.log(error);
+//        (error);
 //     }
 //   })  
 // }
